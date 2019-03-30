@@ -21,7 +21,7 @@ Rating::Rating(int uid, int mid, double ra, string ts)
 	rating = ra;
 	timeStamp = ts;
 }
-//Funcao que adiciona um tweet
+//Funcao que adiciona um rating
 void Rating::addRating(int uid, int mid, double ra, string ts)
 {
 	userID = uid;
@@ -29,7 +29,7 @@ void Rating::addRating(int uid, int mid, double ra, string ts)
 	rating = ra;
 	timeStamp = ts;
 }
-//Retorna o User de um objeto
+//Retorna o UserID de um objeto
 int Rating::getUserID()
 {
 	return userID;
@@ -38,34 +38,34 @@ int Rating::getUserID()
 void Rating::setUserID(int uid) {
 	userID = uid;
 }
-//Retorna o TweetID de um objeto
+//Retorna o ID de filme de um objeto
 int Rating::getMovieID()
 {
 	return movieID;
 }
-//Atribui um TweetID a um objeto
+//Atribui um ID de filme a um objeto
 void Rating::setMovieID(int mid) {
 	movieID = mid;
 }
-//Retorna o Texto do Tweet de um objeto
+//Retorna o Rating do filme de um objeto
 double Rating::getRating()
 {
 	return rating;
 }
-//Atribui um Texto do Tweet a um objeto
+//Atribui um Rating do filme a um objeto
 void Rating::setRating(double ra) {
 	rating = ra;
 }
-//Retorna a data do tweet de um objeto
+//Retorna o timeStamp de um objeto
 string Rating::getTimeStamp()
 {
 	return timeStamp;
 }
-//Atribui uma data do tweet a um objeto
+//Atribui um timeStamp a um objeto
 void Rating::setTimeStamp(string ts) {
 	timeStamp = ts;
 }
-//Imprime Tweet em tela
+//Imprime Rating em tela
 void Rating::printRating() {
 	cout << userID << " " << movieID << " " << rating << " " << timeStamp << endl << "\n";
 }
