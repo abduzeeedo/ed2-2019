@@ -112,10 +112,60 @@ void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int
         cout << "Erro ao abrir o arquivo !" << endl;
 }
 
+//Funcao de leitura do arq e inclusao para um vetor de objetos do tipo Rating
+//entrada: o vetor objetos do tipo rating, e o tamanho desse vetor
+//saida: o vetor de objetos do tipo rating totalmente preenchido com valores do arquivo ratings.csv
+void instanciaObjArq (Rating** vetor, int tam){
+
+    ifstream arquivo;
+    arquivo.open("ratings.csv");
+
+    string buffer;
+    int userID;
+    int movieID;
+    float rating;
+    string timeStamp;
+
+    int pos = 0; //posicao do vetor de objetos
+
+    if(arquivo.is_open()){
+
+        ///pula primeira linha
+        getline(arquivo, buffer);
+
+        ///Pega linhas e vai adicionando em posicoes do vetor de objetos
+        while(pos < tam){
+
+                getline(arquivo, buffer, ',');
+                userID = stoi(buffer);
+
+                getline(arquivo, buffer, ',');
+                movieID = stoi(buffer);
+
+                getline(arquivo, buffer, ',');
+                rating = stof(buffer);
+
+                getline(arquivo, buffer, '\n');
+                timeStamp = buffer;
+
+                Rating* aux = new Rating(userID, movieID, rating, timeStamp); //cria um objeto auxiliar, colocando os valores lidos do arquivo
+                vetor[pos] = aux; //atribui tais valores pra uma posicao do vetor de objetos
+
+                pos++;
+        }
+        arquivo.close();
+
+        randomiza(vetor, tam, 1); //Chama funcao que randomiza a posicao dos objetos do vetor
+
+    }
+    else
+        cout << "Erro ao abrir o arquivo !" << endl;
+}
+
 
 int main()
-{	
-    
+{
+
     //adicionei isso aqui para testar
     int NUM_ELEMENTOS = 10000;
     int* userId = new int[NUM_ELEMENTOS];
@@ -125,13 +175,21 @@ int main()
 
     leituraArq(userId, movieId, rating, timestamp, NUM_ELEMENTOS);
     //**
-	
+
+    //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV  E IMPRIMINDO TAL VETOR ****************************
+    int tam = 50; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
+
+    Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com TAM ratings
+    instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com TAM valores do arquivo Ratings.csv
+
+    for (int i=0; i < tam; i++){
+        exemplo[i]->printRating();//imprime os valores dos TAM objetos
+    }
+    //*******************************************************************************************************************************
+
     imprimeMenu();
 
-    Rating** exemplo = new Rating*[5]; //exemplo de como instanciar um vetor da classe Ratings com 5 ratings
-    Rating* ra = new Rating(1,1,2.5,"teste"); //criando um rating com os valores por parametro
-    exemplo[1] = ra; //inserindo o rating criado na posicao 1 do vetor de ratings
-	
+
     //**
     delete [] userId;
     delete [] movieId;
