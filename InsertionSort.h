@@ -1,3 +1,6 @@
+#ifndef INSERTIONSORT_H_INCLUDED
+#define INSERTIONSORT_H_INCLUDED
+
 #include "rating.h"
 #include <iostream>
 #include <ctime>
@@ -17,3 +20,5 @@ public:
 	void insertionsort(Rating* vetor[], int inicio, int fim);//Funcao de Ordenacao por InsertionSort
 	void limpaDados();//Funcao usada zerar os atributos a fim de preparar para outra ordenacao
 };
+
+#endif // INSERTIONSORT_H_INCLUDED

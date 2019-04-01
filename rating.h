@@ -1,13 +1,5 @@
-/*---------------------------------------
-TRABALHO DE ESTRUTURA DE DADOS 2
-GRUPO:
-Bruno 
-Diogo
-Fernanda
-Thiago
---------------------------------------*/
-#ifndef RATING_H
-#define RATING_H
+#ifndef RATING_H_INCLUDED
+#define RATING_H_INCLUDED
 
 #include <string>
 #include <stdlib.h>
@@ -38,4 +30,4 @@ public:
 	~Rating();//Destrutor
 };
 
-#endif // TWEETS_H
+#endif // RATING_H_INCLUDED

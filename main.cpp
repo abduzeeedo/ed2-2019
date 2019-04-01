@@ -1,21 +1,49 @@
-// TrabalhoED2.cpp : Este arquivo contém a função 'main'. A execução do programa começa e termina ali.
-//
-
-#include "rating.h"
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include "stdlib.h"
+#include "rating.h"
+#include "InsertionSort.h"
+
+
+using namespace std;
+
+string analisaLinhas(ifstream& File)
+{
+	string linhaVerif;
+
+	if (File)
+	{
+		while (File.good())
+		{
+			string linhaTemp;
+			getline(File, linhaTemp);
+			linhaTemp += "\n";
+
+			linhaVerif += linhaTemp;
+		}
+		return linhaVerif;
+	}
+	else
+	{
+		cout << "ERRO AO LER O ARQUIVO DE MENU" << endl;
+		return 0;
+	}
+}
+
+void imprimeMenu()
+{
+	ifstream leitor("menu.txt"); //Le o menu to txt
+	string art = analisaLinhas(leitor);
+	cout << art << endl; //Imprime o menu
+
+	leitor.close();
+}
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+    imprimeMenu();
+    return 0;
 }
-
-// Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração
-// Depurar programa: F5 ou menu Depurar > Iniciar Depuração
-
-// Dicas para Começar: 
-//   1. Use a janela do Gerenciador de Soluções para adicionar/gerenciar arquivos
-//   2. Use a janela do Team Explorer para conectar-se ao controle do código-fonte
-//   3. Use a janela de Saída para ver mensagens de saída do build e outras mensagens
-//   4. Use a janela Lista de Erros para exibir erros
-//   5. Ir Para o Projeto > Adicionar Novo Item para criar novos arquivos de código, ou Projeto > Adicionar Item Existente para adicionar arquivos de código existentes ao projeto
-//   6. No futuro, para abrir este projeto novamente, vá para Arquivo > Abrir > Projeto e selecione o arquivo. sln

@@ -9,7 +9,8 @@ Thiago
 #include "rating.h"
 
 
-// Construtor sobrecarregado para poder utilizar dois tipos de inicializaÃ§Ã£o
+
+// Construtor sobrecarregado para poder utilizar dois tipos de inicialização
 Rating::Rating()
 {
 }
