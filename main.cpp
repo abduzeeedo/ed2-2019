@@ -12,13 +12,22 @@ using namespace std;
 
 
 void imprimeMenu(){
-    ifstream leitor("menu.txt"); //Le o menu to txt
+
+    ifstream leitor;
+    leitor.open("menu.txt");//Le o menu to txt
 	string buffer;
 
-	while(!leitor.eof()){
-        getline(leitor, buffer);
-        cout << buffer << endl;
-	}
+    if (leitor.is_open()){
+        while(!leitor.eof()){
+            getline(leitor, buffer);
+            cout << buffer << endl;
+        }
+        leitor.close();
+    }
+    else {
+        cout << "Erro ao abrir Arquivo!" << endl;
+    }
+
 }
 
 int main()
