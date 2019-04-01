@@ -5,8 +5,9 @@
 #include <vector>
 #include "stdlib.h"
 #include "rating.h"
+#include "include/QuickSort.h"
 #include "InsertionSort.h"
-
+#define TAM 1000
 
 using namespace std;
 
@@ -35,6 +36,7 @@ void imprimeMenu(){
 //Funcao randomiza o conteudo de um vetor de ratings
 //Entrada: Ponteiro para vetor do tipo Rating, tamanho do vetor origem seed do random
 //Saida: O vetor de Ratings com valores entre as posicoes randomizados (desordena)
+
 void randomiza(Rating** vetor, int tam, int seed) {
 	srand(seed);
 	for (int i = 0; i < tam; i++) {
@@ -45,6 +47,15 @@ void randomiza(Rating** vetor, int tam, int seed) {
 //Funcao de leitura do arq
 //entrada:os vetores das chaves
 //saida:
+
+void imprimeVetor(int* userId){
+
+    for(int i =0; i < TAM ; i++){
+        cout << " |" << userId[i] << " ";
+    }
+}
+
+
 void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int NUM_ELEMENTOS){
 
     srand (time(NULL));
@@ -52,7 +63,7 @@ void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int
     int val;
 
     ifstream arquivo;
-    arquivo.open("ratings.csv");
+    arquivo.open("ratings_small.csv");
 
     string buffer;
     if(arquivo.is_open()){
@@ -106,7 +117,6 @@ void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int
             userId[i] = userId[indice];
             userId[indice] = aux;
         }
-
         arquivo.close();
     }else
         cout << "Erro ao abrir o arquivo !" << endl;
@@ -118,7 +128,7 @@ void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int
 void instanciaObjArq (Rating** vetor, int tam){
 
     ifstream arquivo;
-    arquivo.open("ratings.csv");
+    arquivo.open("ratings_small.csv");
 
     string buffer;
     int userID;
@@ -162,33 +172,37 @@ void instanciaObjArq (Rating** vetor, int tam){
         cout << "Erro ao abrir o arquivo !" << endl;
 }
 
-
 int main()
 {
 
     //adicionei isso aqui para testar
-    int NUM_ELEMENTOS = 10000;
-    int* userId = new int[NUM_ELEMENTOS];
-    int* movieId = new int[NUM_ELEMENTOS];
-    float* rating = new float[NUM_ELEMENTOS];
-    string* timestamp = new string[NUM_ELEMENTOS];
+    int* userId = new int[TAM];
+    int* movieId = new int[TAM];
+    float* rating = new float[TAM];
+    string* timestamp = new string[TAM];
 
-    leituraArq(userId, movieId, rating, timestamp, NUM_ELEMENTOS);
+    leituraArq(userId, movieId, rating, timestamp, TAM);
     //**
 
     //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV  E IMPRIMINDO TAL VETOR ****************************
-    int tam = 50; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
+   // int tam = 50; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
 
-    Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com TAM ratings
-    instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com TAM valores do arquivo Ratings.csv
+   // Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com TAM ratings
+  //  instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com TAM valores do arquivo Ratings.csv
 
-    for (int i=0; i < tam; i++){
-        exemplo[i]->printRating();//imprime os valores dos TAM objetos
-    }
+   // for (int i=0; i < tam; i++){
+  //      exemplo[i]->printrating();//imprime os valores dos tam objetos
+  // }
     //*******************************************************************************************************************************
 
     imprimeMenu();
 
+    QuickSort(userId, 0, TAM);
+
+    cout<<"------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"                                  Ordenacao usando Quick Sort                                   "<<endl;
+    cout<<"------------------------------------------------------------------------------------------------"<<endl;
+    imprimeVetor(userId);
 
     //**
     delete [] userId;

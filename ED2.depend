@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1554149325 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\insertionsort.cpp
+	"InsertionSort.h"
+
+1554149325 c:\users\fernanda\documents\ed2\trabalho\ed2-2019\insertionsort.h
+	"rating.h"
+	<iostream>
+	<ctime>
+
+1554149325 c:\users\fernanda\documents\ed2\trabalho\ed2-2019\rating.h
+	<string>
+	<stdlib.h>
+	<iostream>
+
+1554149325 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\rating.cpp
+	"rating.h"
+
+1554160034 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\src\quicksort.cpp
+	"QuickSort.h"
+
+1554157479 c:\users\fernanda\documents\ed2\trabalho\ed2-2019\include\quicksort.h
+	"../rating.h"
+	<string>
+	<stdlib.h>
+	<iostream>
+
+1554160016 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<vector>
+	"stdlib.h"
+	"rating.h"
+	"include/QuickSort.h"
+	"InsertionSort.h"
+
