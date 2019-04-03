@@ -10,7 +10,7 @@ Thiago
 
 
 
-// Construtor sobrecarregado para poder utilizar dois tipos de inicialização
+// Construtor sobrecarregado para poder utilizar dois tipos de inicializacao
 Rating::Rating()
 {
 }
@@ -68,7 +68,7 @@ void Rating::setTimeStamp(string ts) {
 }
 //Imprime Rating em tela
 void Rating::printRating() {
-	cout << userID << " " << movieID << " " << rating << " " << timeStamp << endl << "\n";
+	cout << "UserID:" << userID << " MovieID:" << movieID << " Rating:" << rating << " TimeStamp:" << timeStamp << endl << "\n";
 }
 //Destrutor
 Rating::~Rating() {}

@@ -5,10 +5,12 @@
 #include <vector>
 #include "stdlib.h"
 #include "rating.h"
-#include "include/QuickSort.h"
-#include "InsertionSort.h"
+#include "ordenacoes.h"
+#include <ctime>
 #define TAM 1000
 
+string salvar = "";
+string saidasMenu = "";
 using namespace std;
 
 //Funcao de Impressao de Menu
@@ -33,10 +35,29 @@ void imprimeMenu(){
 
 }
 
+//Funcao Que salva uma string em um arquivo .txt
+//Entrada: String a ser salva e arquivo .txt onde os dados serao salvos.
+//Saida: Escrita da string passada por parametro em um arquivo .txt (tambem passado por parametro)
+void salvarTxt(string salvar, string file) {
+	ofstream arquivo;
+	arquivo.open(file);
+	arquivo << salvar << endl;
+	//arquivo.close();
+}
+
+//funcaoo para converter um int para String, usada na escrita de dados em arquivo txt
+//Entrada: Numero Inteiro -- Saida: Representacao deste numero inteiro em uma String
+string toString(double i)
+{
+	stringstream ss;
+	ss << i;
+	string retorno = ss.str();
+	return retorno;
+}
+
 //Funcao randomiza o conteudo de um vetor de ratings
 //Entrada: Ponteiro para vetor do tipo Rating, tamanho do vetor origem seed do random
 //Saida: O vetor de Ratings com valores entre as posicoes randomizados (desordena)
-
 void randomiza(Rating** vetor, int tam, int seed) {
 	srand(seed);
 	for (int i = 0; i < tam; i++) {
@@ -44,10 +65,7 @@ void randomiza(Rating** vetor, int tam, int seed) {
 	}
 }
 
-//Funcao de leitura do arq
-//entrada:os vetores das chaves
-//saida:
-
+//Imprime vetor de inteiros de userID
 void imprimeVetor(int* userId){
 
     for(int i =0; i < TAM ; i++){
@@ -55,7 +73,16 @@ void imprimeVetor(int* userId){
     }
 }
 
+//imprime vetor de objetos (todos os dados)
+void imprimeObjetos (Rating** vetor, int tam){
+    for (int i=0; i < tam; i++){
+        vetor[i]->printRating();//imprime os valores dos tam objetos
+    }
+}
 
+//Funcao de leitura do arq
+//entrada:os vetores das chaves
+//saida:
 void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int NUM_ELEMENTOS){
 
     srand (time(NULL));
@@ -172,8 +199,36 @@ void instanciaObjArq (Rating** vetor, int tam){
         cout << "Erro ao abrir o arquivo !" << endl;
 }
 
+void exemploOrdLote(Rating** vetor, int tam) {
+
+    Ordenacoes ordena;
+    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+
+    for (int i=0; i < 3; i++){
+        ordena.insertionsort(vetor, 0, valorN[i]); //Chama o Insertion
+        salvar += "==========================================================================\n";
+        salvar += "Algoritmo InsertionSort para N=" + toString(valorN[i]) + "\n";
+        salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
+        salvar += "==========================================================================\n";
+        randomiza(vetor, tam, 1);
+        ordena.limpaDados();
+    }
+
+    cout << "Função em Lote para InsertionSort finalizada com sucesso." << endl;
+}
+
 int main()
 {
+    //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV  E IMPRIMINDO TAL VETOR ****************************
+    int tam = 50000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
+
+    Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com TAM ratings
+    instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com TAM valores do arquivo Ratings.csv
+    //*******************************************************************************************************************************
+
+    imprimeMenu();
+
+    exemploOrdLote(exemplo, tam);
 
     //adicionei isso aqui para testar
     int* userId = new int[TAM];
@@ -182,33 +237,21 @@ int main()
     string* timestamp = new string[TAM];
 
     leituraArq(userId, movieId, rating, timestamp, TAM);
-    //**
 
-    //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV  E IMPRIMINDO TAL VETOR ****************************
-   // int tam = 50; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
-
-   // Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com TAM ratings
-  //  instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com TAM valores do arquivo Ratings.csv
-
-   // for (int i=0; i < tam; i++){
-  //      exemplo[i]->printrating();//imprime os valores dos tam objetos
-  // }
-    //*******************************************************************************************************************************
-
-    imprimeMenu();
-
+    /*
     QuickSort(userId, 0, TAM);
 
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
     cout<<"                                  Ordenacao usando Quick Sort                                   "<<endl;
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
     imprimeVetor(userId);
+    */
 
-    //**
     delete [] userId;
     delete [] movieId;
     delete [] rating;
     delete [] timestamp;
+    salvarTxt(salvar, "saida.txt");
     //**
     return 0;
 }
