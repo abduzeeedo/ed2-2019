@@ -90,7 +90,7 @@ void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int
     int val;
 
     ifstream arquivo;
-    arquivo.open("ratings_small.csv");
+    arquivo.open("ratings.csv");
 
     string buffer;
     if(arquivo.is_open()){
@@ -155,7 +155,9 @@ void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int
 void instanciaObjArq (Rating** vetor, int tam){
 
     ifstream arquivo;
-    arquivo.open("ratings_small.csv");
+    arquivo.open("ratings.csv");
+
+    srand (time(NULL));
 
     string buffer;
     int userID;
@@ -169,7 +171,7 @@ void instanciaObjArq (Rating** vetor, int tam){
 
         ///pula primeira linha
         getline(arquivo, buffer);
-
+        cout << "Inicializando vetor de objetos a partir do arquivo ratings.csv. Tamanho do vetor:" << tam << endl;
         ///Pega linhas e vai adicionando em posicoes do vetor de objetos
         while(pos < tam){
 
@@ -192,7 +194,7 @@ void instanciaObjArq (Rating** vetor, int tam){
         }
         arquivo.close();
 
-        randomiza(vetor, tam, 1); //Chama funcao que randomiza a posicao dos objetos do vetor
+        randomiza(vetor, tam, rand()); //Chama funcao que randomiza a posicao dos objetos do vetor
 
     }
     else
@@ -205,25 +207,25 @@ void exemploOrdLote(Rating** vetor, int tam) {
     int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
     for (int i=0; i < 3; i++){
-        ordena.insertionsort(vetor, 0, valorN[i]); //Chama o Insertion
+        ordena.quicksort(vetor, 0, valorN[i],'r'); //Chama o Insertion
+        cout << "Ordenando vetor via QuickSort para N=" << valorN[i] << endl;
         salvar += "==========================================================================\n";
-        salvar += "Algoritmo InsertionSort para N=" + toString(valorN[i]) + "\n";
+        salvar += "Algoritmo QuickSort para N=" + toString(valorN[i]) + "\n";
         salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
         salvar += "==========================================================================\n";
         randomiza(vetor, tam, 1);
         ordena.limpaDados();
     }
-
-    cout << "Função em Lote para InsertionSort finalizada com sucesso." << endl;
+    cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
 }
 
 int main()
 {
-    //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV  E IMPRIMINDO TAL VETOR ****************************
-    int tam = 50000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
+    //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV ****************************
+    int tam = 200000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
 
-    Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com TAM ratings
-    instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com TAM valores do arquivo Ratings.csv
+    Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com tam ratings
+    instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com tam valores do arquivo Ratings.csv
     //*******************************************************************************************************************************
 
     imprimeMenu();
