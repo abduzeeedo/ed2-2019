@@ -10,12 +10,12 @@ Thiago
 
 
 
-// Construtor sobrecarregado para poder utilizar dois tipos de inicializacao
+// Construtor sobrecarregado para poder utilizar dois tipos de inicialização
 Rating::Rating()
 {
 }
 //Construtor Padrao
-Rating::Rating(int uid, int mid, double ra, string ts)
+Rating::Rating(int uid, int mid, float ra, string ts)
 {
 	userID = uid;
 	movieID = mid;
@@ -23,7 +23,7 @@ Rating::Rating(int uid, int mid, double ra, string ts)
 	timeStamp = ts;
 }
 //Funcao que adiciona um rating
-void Rating::addRating(int uid, int mid, double ra, string ts)
+void Rating::addRating(int uid, int mid, float ra, string ts)
 {
 	userID = uid;
 	movieID = mid;
@@ -49,12 +49,12 @@ void Rating::setMovieID(int mid) {
 	movieID = mid;
 }
 //Retorna o Rating do filme de um objeto
-double Rating::getRating()
+float Rating::getRating()
 {
 	return rating;
 }
 //Atribui um Rating do filme a um objeto
-void Rating::setRating(double ra) {
+void Rating::setRating(float ra) {
 	rating = ra;
 }
 //Retorna o timeStamp de um objeto
