@@ -30,6 +30,11 @@ public:
 	void quicksort(Rating* vetor[], int ini, int fim, char tipo);//Funcao de ordenacao por QuickSort Recursivo e suas variacoes
 	int mediana(Rating* vetor[], int numVal, int inicio, int fim);//Funcao que calcula a mediana entre 3 e 5 valores de rating userID e retorna a posicao de tal valor
 	//---------------------------------------------------------------------------------
+	
+	//-------------------------Algoritmo HeapSort--------------------------------------
+	void heapsort(Rating* vetor[], int tam); //HeapSort para vetor de objetos
+        void constroiHeap(Rating* vetor[], int tam, int indice_raiz); //Procedimento para construcao do Heap
+
 
 };
 
