@@ -91,7 +91,7 @@ int Ordenacoes::particiona(Rating* vet[], int inicio, int fim, int pos)
 {
 	int pospiv;
 	/*
-	Posicao do vetor, a formula para calcular a posiÁao È (inicio + ((posicao)%(fim-inicio+1))). No caso, posicao = (inicio + fim) / 2), metade do vetor
+	Posicao do vetor, a formula para calcular a posi√ßao √© (inicio + ((posicao)%(fim-inicio+1))). No caso, posicao = (inicio + fim) / 2), metade do vetor
 	Exemplo, caso queira passar a posicao 3 do vetor como pivo int pospiv = inicio + (3 % (fim - inicio + 1));
 	*/
 	if (pos == -1) { //Pos com Codigo -1: Usa a posicao central do vetor como pivo
@@ -217,7 +217,7 @@ int Ordenacoes::mediana(Rating* vet[], int numVal, int inicio, int fim) {
 		}
 		Ordenacoes ordena;
 		ordena.insertionsort(vetor, 0, 3);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
-		posMediana = vet[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que È a posicao original do vetor de Ratings
+		posMediana = vet[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que √© a posicao original do vetor de Ratings
 		return posMediana;
 	}
 
@@ -230,7 +230,7 @@ int Ordenacoes::mediana(Rating* vet[], int numVal, int inicio, int fim) {
 		}
 		Ordenacoes ordena;
 		ordena.insertionsort(vetor, 0, 3);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
-		posMediana = vet[2]->getMovieID();//pega o valor central do vetor (mediana) e atribui o MovieID, que È a posicao original do vetor de Ratings
+		posMediana = vet[2]->getMovieID();//pega o valor central do vetor (mediana) e atribui o MovieID, que √© a posicao original do vetor de Ratings
 		return posMediana;
 	}
 	return inicio; //caso nao entre em nenhuma condicao, passa a posicao inicial como valor
@@ -241,7 +241,7 @@ void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
 
     int esquerda, direita, pivo, meio, aux;
 
-    //limites da esquerda e da direita da regi„o analisada
+    //limites da esquerda e da direita da regi√£o analisada
     esquerda = inicio;
     direita = fim;
 
@@ -272,7 +272,7 @@ void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
 
     }
 
-    //recurs„o para continuar comparando
+    //recurs√£o para continuar comparando
     if(inicio < direita) {
         QuickSortInt(userId, inicio, direita);
     }
@@ -280,5 +280,61 @@ void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
     if(esquerda < fim) {
         QuickSortInt(userId, esquerda, fim);
     }
+	
+//Procedimento que controi um vetor de objetos Heap
+//ENTRADA: Vetor de objetos do tipo Rating, tamanho do vetor e o indice raiz
+void HeapSort::constroiHeap(Rating* vetor[], int tam, int indice_raiz)
+{
+	int ramificacao;
+	Rating* valor;
+	valor = vetor[indice_raiz];
+
+	while (indice_raiz < tam / 2) {
+		ramificacao = 2 * indice_raiz + 1;
+
+		if (ramificacao < tam - 1 && vetor[ramificacao]->getUserID() < vetor[ramificacao + 1]->getUserID()) {
+			ramificacao++;
+
+		}
+		if (valor->getUserID() >= vetor[ramificacao]->getUserID()) {//Identifica o max-heap
+			numTrocas++;
+			break;
+		}
+
+		vetor[indice_raiz] = vetor[ramificacao];
+		indice_raiz = ramificacao;
+		++numCompar;
+	}
+	vetor[indice_raiz] = valor;
+}
+
+
+
+
+//Algoritmo HeapSort
+//ENTRADA: Vetor de objetos do tipo Rating, e o tamanho do vetor
+//SAIDA: Tal vetor ordenado via HeapSort
+void HeapSort::heapsort(Rating* vetor[], int tam)
+{
+	clock_t relogio;
+	relogio = clock();
+
+	int indice;
+	Rating* troca;
+	for (indice = tam / 2; indice >= 0; indice--)
+		constroiHeap(vetor, tam, indice);
+
+	while (tam > 0)
+	{
+		troca = vetor[0];
+		vetor[0] = vetor[tam - 1];
+		vetor[tam - 1] = troca;
+		numTrocas++;
+		constroiHeap(vetor, --tam, 0);
+	}
+
+	tempoGasto = (clock() - relogio) / (double)CLOCKS_PER_SEC;
+
+}
 
 }
