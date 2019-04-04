@@ -10,7 +10,7 @@ Thiago
 
 
 
-// Construtor sobrecarregado para poder utilizar dois tipos de inicialização
+// Construtor sobrecarregado para poder utilizar dois tipos de inicializaï¿½ï¿½o
 Rating::Rating()
 {
 }

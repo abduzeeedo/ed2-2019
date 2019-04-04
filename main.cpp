@@ -5,12 +5,9 @@
 #include <vector>
 #include "stdlib.h"
 #include "rating.h"
-#include "include/QuickSort.h"
-#include "include/MergeSort.h"
 #define TAM 100
 #include "ordenacoes.h"
 #include <ctime>
-#define TAM 1000
 
 string salvar = "";
 string saidasMenu = "";
@@ -33,7 +30,7 @@ void imprimeMenu(){
         leitor.close();
     }
     else {
-        cout << "Erro ao abrir Arquivo!" << endl;
+        cout << "Erro ao abrir Arquivo MENUUUUUUUUUU!" << endl;
     }
 
 }
@@ -160,8 +157,6 @@ void instanciaObjArq (Rating** vetor, int tam){
     ifstream arquivo;
     arquivo.open("ratings.csv");
 
-    srand (time(NULL));
-
     string buffer;
     int userID;
     int movieID;
@@ -190,26 +185,26 @@ void instanciaObjArq (Rating** vetor, int tam){
                 getline(arquivo, buffer, '\n');
                 timeStamp = buffer;
 
+                //vetor[pos]->addRating(userID, movieID, rating, timeStamp);
+
                 Rating* aux = new Rating(userID, movieID, rating, timeStamp); //cria um objeto auxiliar, colocando os valores lidos do arquivo
                 vetor[pos] = aux; //atribui tais valores pra uma posicao do vetor de objetos
-
                 pos++;
         }
         arquivo.close();
-
-        randomiza(vetor, tam, rand()); //Chama funcao que randomiza a posicao dos objetos do vetor
+        randomiza(vetor, tam, 1); //Chama funcao que randomiza a posicao dos objetos do vetor
 
     }
     else
         cout << "Erro ao abrir o arquivo !" << endl;
 }
 
-void exemploOrdLote(Rating** vetor, int tam) {
+void loteQuickSort (Rating** vetor, int tam) {
 
     Ordenacoes ordena;
     int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
-    for (int i=0; i < 3; i++){
+    for (int i=0; i < 7; i++){
         ordena.quicksort(vetor, 0, valorN[i],'r'); //Chama o Insertion
         cout << "Ordenando vetor via QuickSort para N=" << valorN[i] << endl;
         salvar += "==========================================================================\n";
@@ -222,19 +217,45 @@ void exemploOrdLote(Rating** vetor, int tam) {
     cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
 }
 
+void loteQuickSortInt (Rating** vetor, int tam) {
+
+    Ordenacoes quickInt;
+    int* userId = new int[tam];
+    for (int i=0; i<tam; i++){
+        userId[i] = vetor[i]->getUserID();
+    }
+
+    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+
+    for (int i=0; i < 3; i++){
+        quickInt.QuickSortInt(userId, 0, tam);
+        cout << "Ordenando vetor via QuickSort para Vetor de Inteiros de tamanho N=" << valorN[i] << endl;
+        salvar += "==========================================================================\n";
+        salvar += "Algoritmo QuickSort para N=" + toString(valorN[i]) + "\n";
+        //salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
+        salvar += "==========================================================================\n";
+        //ordena.limpaDados();
+    }
+    cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
+}
+
+
 int main()
 {
     //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV ****************************
-    int tam = 200000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
+    int tam = 2000000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
 
     Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com tam ratings
     instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com tam valores do arquivo Ratings.csv
     //*******************************************************************************************************************************
 
+
     imprimeMenu();
 
-    exemploOrdLote(exemplo, tam);
+    loteQuickSort(exemplo, tam);
 
+    //loteQuickSort(exemplo, tam);
+    /*
     //adicionei isso aqui para testar
     int* userId = new int[TAM];
     int* movieId = new int[TAM];
@@ -243,7 +264,9 @@ int main()
 
     leituraArq(userId, movieId, rating, timestamp, TAM);
 
-    QuickSort(userId, 0, TAM);
+    Ordenacoes quickInt;
+
+    quickInt.QuickSortInt(userId, 0, TAM);
 
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
     cout<<"                                  Ordenacao usando Merge Sort                                   "<<endl;
@@ -258,6 +281,7 @@ int main()
     delete [] movieId;
     delete [] rating;
     delete [] timestamp;
+    */
     salvarTxt(salvar, "saida.txt");
     //**
     return 0;
