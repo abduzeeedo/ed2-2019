@@ -5,16 +5,12 @@
 #include <vector>
 #include "stdlib.h"
 #include "rating.h"
-<<<<<<< HEAD
 #include "include/QuickSort.h"
 #include "include/MergeSort.h"
-#include "InsertionSort.h"
 #define TAM 100
-=======
 #include "ordenacoes.h"
 #include <ctime>
 #define TAM 1000
->>>>>>> 4235c75fb3f169ec453c03eef0a714a3d66cd6b4
 
 string salvar = "";
 string saidasMenu = "";
@@ -247,23 +243,16 @@ int main()
 
     leituraArq(userId, movieId, rating, timestamp, TAM);
 
-<<<<<<< HEAD
-    //QuickSort(userId, 0, TAM);
-
-
-=======
-    /*
     QuickSort(userId, 0, TAM);
->>>>>>> 4235c75fb3f169ec453c03eef0a714a3d66cd6b4
 
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
     cout<<"                                  Ordenacao usando Merge Sort                                   "<<endl;
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
 
-    MergeSort(userId, 0, TAM-1);
+   // MergeSort(userId, 0, TAM-1);
     cout<<"testeeee"<<endl;
     imprimeVetor(userId);
-    */
+
 
     delete [] userId;
     delete [] movieId;

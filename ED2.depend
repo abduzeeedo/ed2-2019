@@ -7,12 +7,12 @@
 	<iostream>
 	<ctime>
 
-1554149325 c:\users\fernanda\documents\ed2\trabalho\ed2-2019\rating.h
+1554342168 c:\users\fernanda\documents\ed2\trabalho\ed2-2019\rating.h
 	<string>
 	<stdlib.h>
 	<iostream>
 
-1554149325 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\rating.cpp
+1554342168 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\rating.cpp
 	"rating.h"
 
 1554160034 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\src\quicksort.cpp
@@ -36,10 +36,10 @@
 	"include/MergeSort.h"
 	"InsertionSort.h"
 
-1554257970 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\src\mergesort.cpp
+1554342053 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\src\mergesort.cpp
 	"MergeSort.h"
 
-1554257295 c:\users\fernanda\documents\ed2\trabalho\ed2-2019\include\mergesort.h
+1554342053 c:\users\fernanda\documents\ed2\trabalho\ed2-2019\include\mergesort.h
 	"../rating.h"
 	<string>
 	<stdlib.h>
