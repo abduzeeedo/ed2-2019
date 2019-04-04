@@ -6,8 +6,9 @@
 #include "stdlib.h"
 #include "rating.h"
 #include "include/QuickSort.h"
+#include "include/MergeSort.h"
 #include "InsertionSort.h"
-#define TAM 1000
+#define TAM 100
 
 using namespace std;
 
@@ -49,7 +50,7 @@ void randomiza(Rating** vetor, int tam, int seed) {
 //saida:
 
 void imprimeVetor(int* userId){
-
+cout<<"teste"<<endl;
     for(int i =0; i < TAM ; i++){
         cout << " |" << userId[i] << " ";
     }
@@ -197,11 +198,16 @@ int main()
 
     imprimeMenu();
 
-    QuickSort(userId, 0, TAM);
+    //QuickSort(userId, 0, TAM);
+
+
 
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
-    cout<<"                                  Ordenacao usando Quick Sort                                   "<<endl;
+    cout<<"                                  Ordenacao usando Merge Sort                                   "<<endl;
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
+
+    MergeSort(userId, 0, TAM-1);
+    cout<<"testeeee"<<endl;
     imprimeVetor(userId);
 
     //**

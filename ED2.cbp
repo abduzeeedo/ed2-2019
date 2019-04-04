@@ -36,10 +36,12 @@
 		</Compiler>
 		<Unit filename="InsertionSort.cpp" />
 		<Unit filename="InsertionSort.h" />
+		<Unit filename="include/MergeSort.h" />
 		<Unit filename="include/QuickSort.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="rating.cpp" />
 		<Unit filename="rating.h" />
+		<Unit filename="src/MergeSort.cpp" />
 		<Unit filename="src/QuickSort.cpp" />
 		<Extensions>
 			<code_completion />

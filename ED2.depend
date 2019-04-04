@@ -24,7 +24,7 @@
 	<stdlib.h>
 	<iostream>
 
-1554160016 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\main.cpp
+1554257671 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -33,5 +33,15 @@
 	"stdlib.h"
 	"rating.h"
 	"include/QuickSort.h"
+	"include/MergeSort.h"
 	"InsertionSort.h"
+
+1554257970 source:c:\users\fernanda\documents\ed2\trabalho\ed2-2019\src\mergesort.cpp
+	"MergeSort.h"
+
+1554257295 c:\users\fernanda\documents\ed2\trabalho\ed2-2019\include\mergesort.h
+	"../rating.h"
+	<string>
+	<stdlib.h>
+	<iostream>
 
