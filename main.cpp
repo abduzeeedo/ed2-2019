@@ -236,7 +236,47 @@ void loteQuickSortInt (Rating** vetor, int tam) {
         salvar += "==========================================================================\n";
         //ordena.limpaDados();
     }
-    cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
+    cout << "Funcao em Lote para QuickSort de Inteiros finalizada com sucesso." << endl;
+}
+
+void loteHeapSort (Rating** vetor, int tam) {
+
+    Ordenacoes heapSort;
+    int* userId = new int[tam];
+    for (int i=0; i<tam; i++){
+        userId[i] = vetor[i]->getUserID();
+    }
+
+    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+
+    for (int i=0; i < 3; i++){
+        quickInt.QuickSortInt(userId, 0, tam);
+        cout << "Ordenando vetor via QuickSort para Vetor de Inteiros de tamanho N=" << valorN[i] << endl;
+        salvar += "==========================================================================\n";
+        salvar += "Algoritmo QuickSort para N=" + toString(valorN[i]) + "\n";
+        //salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
+        salvar += "==========================================================================\n";
+        //ordena.limpaDados();
+    }
+    cout << "Funcao em Lote para QuickSort de Inteiros finalizada com sucesso." << endl;
+}
+
+void loteHeapSort (Rating** vetor, int tam) {
+
+    Ordenacoes ordena;
+    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+
+    for (int i=0; i < 7; i++){
+        ordena.heapsort(vetor, valorN[i]); //Chama o Insertion
+        cout << "Ordenando vetor via HeapSort para N=" << valorN[i] << endl;
+        salvar += "==========================================================================\n";
+        salvar += "Algoritmo HeapSort para N=" + toString(valorN[i]) + "\n";
+        salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
+        salvar += "==========================================================================\n";
+        randomiza(vetor, tam, 1);
+        ordena.limpaDados();
+    }
+    cout << "Funcao em Lote para HeapSort finalizada com sucesso." << endl;
 }
 
 
@@ -253,6 +293,8 @@ int main()
     imprimeMenu();
 
     loteQuickSort(exemplo, tam);
+    randomiza(exemplo, tam, 2);
+    loteHeapSort(exemplo, tam);
 
     //loteQuickSort(exemplo, tam);
     /*
