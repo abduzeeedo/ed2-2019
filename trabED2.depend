@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1554426098 source:c:\users\tm\documents\code blocks\projetos\trabed2\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<vector>
+	"stdlib.h"
+	"rating.h"
+	"ordenacoes.h"
+	<ctime>
+
+1554078011 source:c:\users\tm\documents\code blocks\projetos\trabed2\insertionsort.cpp
+	"InsertionSort.h"
+
+1554077912 c:\users\tm\documents\code blocks\projetos\trabed2\insertionsort.h
+	"rating.h"
+	<iostream>
+	<ctime>
+
+1554424871 c:\users\tm\documents\code blocks\projetos\trabed2\rating.h
+	<string>
+	<stdlib.h>
+	<iostream>
+
+1554424909 source:c:\users\tm\documents\code blocks\projetos\trabed2\rating.cpp
+	"rating.h"
+
+1554424887 c:\users\tm\documents\code blocks\projetos\trabed2\ordenacoes.h
+	"rating.h"
+	<iostream>
+	<ctime>
+
+1554424918 source:c:\users\tm\documents\code blocks\projetos\trabed2\ordenacoes.cpp
+	"ordenacoes.h"
+

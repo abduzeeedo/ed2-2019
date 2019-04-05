@@ -203,16 +203,20 @@ void loteQuickSort (Rating** vetor, int tam) {
 
     Ordenacoes ordena;
     int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
-
-    for (int i=0; i < 7; i++){
-        ordena.quicksort(vetor, 0, valorN[i],'r'); //Chama o Insertion
-        cout << "Ordenando vetor via QuickSort para N=" << valorN[i] << endl;
-        salvar += "==========================================================================\n";
-        salvar += "Algoritmo QuickSort para N=" + toString(valorN[i]) + "\n";
-        salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
-        salvar += "==========================================================================\n";
-        randomiza(vetor, tam, 1);
-        ordena.limpaDados();
+    //For que realiza ordenacoes com 5 seeds diferentes para cada N
+    for (int j=0; j < 6; j++){
+        int seed = rand() % valorN[j];
+        //for que percorre todos os N valores pedidos no enunciado
+        for (int i=0; i < 7; i++){
+            ordena.quicksort(vetor, 0, valorN[i],'r'); //Chama o Insertion
+            cout << "Ordenando vetor via QuickSort para N=" << valorN[i] << " e seed = " << seed << endl;
+            salvar += "==========================================================================\n";
+            salvar += "Algoritmo QuickSort para N=" + toString(valorN[i]) + " e seed = " + toString(seed) + "\n";
+            salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
+            salvar += "==========================================================================\n";
+            randomiza(vetor, tam, seed);
+            ordena.limpaDados();
+        }
     }
     cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
 }
@@ -235,28 +239,20 @@ void loteQuickSortInt (Rating** vetor, int tam) {
         //salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
         salvar += "==========================================================================\n";
         //ordena.limpaDados();
-    }
-    cout << "Funcao em Lote para QuickSort de Inteiros finalizada com sucesso." << endl;
-}
 
-void loteHeapSort (Rating** vetor, int tam) {
+        ///embaralha o vetor
+        int aux;
+        int indice;
 
-    Ordenacoes heapSort;
-    int* userId = new int[tam];
-    for (int i=0; i<tam; i++){
-        userId[i] = vetor[i]->getUserID();
-    }
+        for(int i = 0;i < valorN[i];i++){
 
-    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+            ///Numero aleatorio entre 0 e o ultimo indice
+            indice = rand() % (valorN[i]-1);
 
-    for (int i=0; i < 3; i++){
-        quickInt.QuickSortInt(userId, 0, tam);
-        cout << "Ordenando vetor via QuickSort para Vetor de Inteiros de tamanho N=" << valorN[i] << endl;
-        salvar += "==========================================================================\n";
-        salvar += "Algoritmo QuickSort para N=" + toString(valorN[i]) + "\n";
-        //salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
-        salvar += "==========================================================================\n";
-        //ordena.limpaDados();
+            aux = userId[i];
+            userId[i] = userId[indice];
+            userId[indice] = aux;
+        }
     }
     cout << "Funcao em Lote para QuickSort de Inteiros finalizada com sucesso." << endl;
 }
@@ -293,8 +289,8 @@ int main()
     imprimeMenu();
 
     loteQuickSort(exemplo, tam);
-    randomiza(exemplo, tam, 2);
-    loteHeapSort(exemplo, tam);
+    //randomiza(exemplo, tam, 2);
+    //loteHeapSort(exemplo, tam);
 
     //loteQuickSort(exemplo, tam);
     /*
