@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1556829524 source:c:\users\bruno\documents\projetos codeblocks\trabed2\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	"rating.h"
+	"ordenacoes.h"
+	"funcoesGerais.h"
+	<ctime>
+
+1556829492 source:c:\users\bruno\documents\projetos codeblocks\trabed2\ordenacoes.cpp
+	"ordenacoes.h"
+
+1555010183 source:c:\users\bruno\documents\projetos codeblocks\trabed2\rating.cpp
+	"rating.h"
+
+1555010211 c:\users\bruno\documents\projetos codeblocks\trabed2\rating.h
+	<string>
+	<stdlib.h>
+	<iostream>
+
+1556829447 c:\users\bruno\documents\projetos codeblocks\trabed2\ordenacoes.h
+	"rating.h"
+	<iostream>
+	<ctime>
+
+1556824949 source:c:\users\bruno\documents\projetos codeblocks\trabed2\funcoesgerais.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	"rating.h"
+	"ordenacoes.h"
+	"funcoesGerais.h"
+	<ctime>
+
+1555013720 c:\users\bruno\documents\projetos codeblocks\trabed2\funcoesgerais.h
+	<iostream>
+	<fstream>
+	<string>
+	"rating.h"
+	"ordenacoes.h"
+	"funcoesGerais.h"
+	<ctime>
+
