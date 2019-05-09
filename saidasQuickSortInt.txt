@@ -1,0 +1,73 @@
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 124 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 1104 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 7676 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 22055 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 29272 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 17457 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 826 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 219 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 8465 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 22212 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 3180 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 10364 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 503 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 3853 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 3746 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 27753 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 18609 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+==========================================================================
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 12556 E do tipo r
+Numero de Trocas:0. Numero de Comparacoes:0. Tempo Gasto:0.000000.
+==========================================================================
+
