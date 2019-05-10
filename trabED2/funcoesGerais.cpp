@@ -9,8 +9,12 @@
 #include "ordenacoes.h"
 #include "funcoesGerais.h"
 #include <ctime>
+#include <algorithm>
 
 string salvar = "";
+string salvarQuickSort = "";
+string salvarQuickSortInt = "";
+string salvarInsertionSort = "";
 string saidasMenu = "";
 
 //Funcao de Impressao de Menu
@@ -51,7 +55,17 @@ void salvarTxt(string salvar, string file) {
 void randomiza(Rating** vetor, int tam, int seed) {
 	srand(seed);
 	for (int i = 0; i < tam; i++) {
-		swap(vetor[rand() % tam], vetor[rand() % tam]);
+		swap(vetor[i], vetor[rand() % tam]);
+	}
+}
+
+//Funcao randomiza o conteudo de um vetor de ratings
+//Entrada: Ponteiro para vetor do tipo Rating, tamanho do vetor origem seed do random
+//Saida: O vetor de Ratings com valores entre as posicoes randomizados (desordena)
+void randomizaInt(int vetor[], int tam, int seed) {
+	srand(seed);
+	for (int i = 0; i < tam; i++) {
+		swap(vetor[i], vetor[rand() % tam]);
 	}
 }
 
@@ -80,7 +94,7 @@ void leituraArq(int* userId, int* movieId, float* rating, string* timestamp, int
     int val;
 
     ifstream arquivo;
-    arquivo.open("ratings_small.csv");
+    arquivo.open("ratings.csv");
 
     string buffer;
     if(arquivo.is_open()){
@@ -146,7 +160,7 @@ void instanciaObjArq (Rating** vetor, int tam){
 
     srand(time(NULL));
     ifstream arquivo;
-    arquivo.open("ratings_small.csv");
+    arquivo.open("ratings.csv");
 
     string buffer;
     int userID;
@@ -192,64 +206,80 @@ void instanciaObjArq (Rating** vetor, int tam){
 
 void loteQuickSort (Rating** vetor, int tam) {
     srand(time(NULL));
-    randomiza(vetor, tam, time(NULL));
+    random_shuffle(&vetor[0],&vetor[tam]);
     Ordenacoes ordena;
     int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
     //for que percorre todos os N valores pedidos no enunciado
-    for (int i=0; i < 3; i++){
+    for (int i=0; i < 7; i++){
         //For que realiza ordenacoes com 5 seeds diferentes para cada N
-        for (int j=0; j < 6; j++){
+        for (int j=0; j < 5; j++){
             int seed = rand() % valorN[j];
             ordena.quicksort(vetor, 0, valorN[i],'r'); //Chama o Insertion
             cout << "Ordenando vetor via QuickSort para N=" << valorN[i] << " e seed = " << seed << endl;
-            salvar += "==========================================================================\n";
-            salvar += "Algoritmo QuickSort para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + "\n";
-            salvar += "Numero de Trocas:" + to_string(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + to_string(ordena.getNumComparacoes()) + ". Tempo Gasto:" + to_string(ordena.getTempoGasto()) + ".\n";
-            salvar += "==========================================================================\n";
-            randomiza(vetor, tam, seed);
+            salvarQuickSort += "==========================================================================\n";
+            salvarQuickSort += "Algoritmo QuickSort para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + "\n";
+            salvarQuickSort += "Numero de Trocas:" + to_string(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + to_string(ordena.getNumComparacoes()) + ". Tempo Gasto:" + to_string(ordena.getTempoGasto()) + ".\n";
+            salvarQuickSort += "==========================================================================\n";
+            srand(seed);
+            random_shuffle(&vetor[0],&vetor[tam]);
             ordena.limpaDados();
         }
     }
     cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
-    salvarTxt(salvar, "saidasQuickSortInt.txt");
+    salvarTxt(salvarQuickSort, "saidasQuickSort.txt");
 }
 
-void loteQuickSortInt (Rating** vetor, int tam) {
-
-    Ordenacoes quickInt;
-    int* userId = new int[tam];
-    for (int i=0; i<tam; i++){
-        userId[i] = vetor[i]->getUserID();
-    }
-
+void loteQuickSortInt (int vetor[], int tam, char tipo) {
+    srand(time(NULL));
+    random_shuffle(&vetor[0],&vetor[tam]);
+    Ordenacoes ordena;
     int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
-    for (int i=0; i < 3; i++){
-        quickInt.QuickSortInt(userId, 0, tam);
-        cout << "Ordenando vetor via QuickSort para Vetor de Inteiros de tamanho N=" << valorN[i] << endl;
-        salvar += "==========================================================================\n";
-        salvar += "Algoritmo QuickSort para N=" + to_string(valorN[i]) + "\n";
-        //salvar += "Numero de Trocas:" + toString(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + toString(ordena.getNumComparacoes()) + ". Tempo Gasto:" + toString(ordena.getTempoGasto()) + ".\n";
-        salvar += "==========================================================================\n";
-        //ordena.limpaDados();
-
-        ///embaralha o vetor
-        int aux;
-        int indice;
-
-        for(int i = 0;i < valorN[i];i++){
-
-            ///Numero aleatorio entre 0 e o ultimo indice
-            indice = rand() % (valorN[i]-1);
-
-            aux = userId[i];
-            userId[i] = userId[indice];
-            userId[indice] = aux;
+    //for que percorre todos os N valores pedidos no enunciado
+    for (int i=0; i < 7; i++){
+        //For que realiza ordenacoes com 5 seeds diferentes para cada N
+        for (int j=0; j < 5; j++){
+            int seed = rand() % valorN[j];
+            ordena.quicksortInteiros(vetor, 0, valorN[i], tipo); //Chama o QuickSort
+            cout << "Ordenando vetor via QuickSort de Inteiros para N=" << valorN[i] << " e seed = " << seed << " E do tipo " << tipo << endl;
+            salvarQuickSortInt += "==========================================================================\n";
+            salvarQuickSortInt += "Algoritmo QuickSort de Inteiros para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + " E do tipo " + tipo + "\n";
+            salvarQuickSortInt += "Numero de Trocas:" + to_string(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + to_string(ordena.getNumComparacoes()) + ". Tempo Gasto:" + to_string(ordena.getTempoGasto()) + ".\n";
+            salvarQuickSortInt += "==========================================================================\n";
+            srand(seed);
+            random_shuffle(&vetor[0],&vetor[tam]);
+            ordena.limpaDados();
         }
     }
-    cout << "Funcao em Lote para QuickSort de Inteiros finalizada com sucesso." << endl;
-    salvarTxt(salvar, "saidasQuickSortInt.txt");
+    cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
+    salvarTxt(salvarQuickSortInt, "saidaQuickSortMediana3.txt");
+}
+
+void loteInsertionSort (int vetor[], int tam) {
+    srand(time(NULL));
+    random_shuffle(&vetor[0],&vetor[tam]);
+    Ordenacoes ordena;
+    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
+
+    //for que percorre todos os N valores pedidos no enunciado
+    for (int i=0; i < 7; i++){
+        //For que realiza ordenacoes com 5 seeds diferentes para cada N
+        for (int j=0; j < 5; j++){
+            int seed = rand() % valorN[j];
+            ordena.insertionsortInt(vetor, 0, valorN[i]); //Chama o Insertion
+            cout << "Ordenando vetor via InsertionSort de Inteiros para N=" << valorN[i] << " e seed = " << seed << endl;
+            salvarInsertionSort += "==========================================================================\n";
+            salvarInsertionSort += "Algoritmo InsertionSort de Inteiros para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + "\n";
+            salvarInsertionSort += "Numero de Trocas:" + to_string(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + to_string(ordena.getNumComparacoes()) + ". Tempo Gasto:" + to_string(ordena.getTempoGasto()) + ".\n";
+            salvarInsertionSort += "==========================================================================\n";
+            srand(seed);
+            random_shuffle(&vetor[0],&vetor[tam]);
+            ordena.limpaDados();
+        }
+    }
+    cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
+    salvarTxt(salvarInsertionSort, "saidasInsertionSort.txt");
 }
 
 

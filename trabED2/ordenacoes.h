@@ -23,7 +23,6 @@ public:
 	//----------------------- Algoritmo InsertionSort --------------------------------------
 	void insertionsort(Rating* vetor[], int inicio, int fim);//Funcao de Ordenacao por InsertionSort em vetores de objetos
     void insertionsortInt(int vetor[], int inicio, int fim);//Funcao de Ordenacao por InsertionSort em vetores de inteiros (userID)
-
 	//--------------------------------------------------------------------------------
 
 	//------------------------- Algoritmo QuickSort --------------------------------------
