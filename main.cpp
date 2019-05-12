@@ -26,24 +26,10 @@ int main()
         vet[i] = objetos[i]->getUserID();
     }
 
-    loteInsertionSort(vet, tam);
+   // loteQuickSortInt(vet, tam, 'm');
 
-    /*
-    random_shuffle(&vet[0],&vet[tam]);
+    loteMergeSort(vet, tam);
 
-    for (int i=0; i < 500; i++){
-        cout << vet[i] << endl;
-    }
-
-    cout << "-----------------------------------------------------------------------------" << endl;
-
-    Ordenacoes ordena;
-
-    ordena.mergesort2(vet, 0, tam);
-
-    for (int i=0; i < 500; i++){
-        cout << vet[i] << endl;
-    }
 
     imprimeMenu();
 
@@ -81,6 +67,6 @@ int main()
     delete [] timestamp;
     */
     //
-    delete [] vet;
+        ///delete [] vet;
     return 0;
 }

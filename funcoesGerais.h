@@ -19,9 +19,6 @@ void instanciaObjArq (Rating** vetor, int tam);
 void loteQuickSort (Rating** vetor, int tam);
 void loteQuickSortInt (int vetor[], int tam, char tipo);
 void loteInsertionSort (int vetor[], int tam);
-void loteHeapSort (int vetor[], int tam);
-void loteMergeSort (int vetor[], int tam);
-void loteShellSort (int vetor[], int tam);
-
+void loteMergeSort (int* vetor, int tam);
 
 #endif // FUNCOESGERAIS_H_INCLUDED

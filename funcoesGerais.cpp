@@ -15,10 +15,8 @@ string salvar = "";
 string salvarQuickSort = "";
 string salvarQuickSortInt = "";
 string salvarInsertionSort = "";
-string saidasMenu = "";
-string salvarHeapSort = "";
 string salvarMergeSort = "";
-string salvarShellSort = "";
+string saidasMenu = "";
 
 //Funcao de Impressao de Menu
 //Entrada: Arquivo .txt do menu a ser impresso em tela
@@ -218,7 +216,7 @@ void loteQuickSort (Rating** vetor, int tam) {
         //For que realiza ordenacoes com 5 seeds diferentes para cada N
         for (int j=0; j < 5; j++){
             int seed = rand() % valorN[j];
-            ordena.quicksort(vetor, 0, valorN[i]); //Chama o Insertion
+            ordena.quicksort(vetor, 0, valorN[i],'r'); //Chama o Insertion
             cout << "Ordenando vetor via QuickSort para N=" << valorN[i] << " e seed = " << seed << endl;
             salvarQuickSort += "==========================================================================\n";
             salvarQuickSort += "Algoritmo QuickSort para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + "\n";
@@ -244,7 +242,7 @@ void loteQuickSortInt (int vetor[], int tam, char tipo) {
         //For que realiza ordenacoes com 5 seeds diferentes para cada N
         for (int j=0; j < 5; j++){
             int seed = rand() % valorN[j];
-            ordena.quicksortInt(vetor, 0, valorN[i]; //Chama o QuickSort
+            ordena.quicksortInteiros(vetor, 0, valorN[i], tipo); //Chama o QuickSort
             cout << "Ordenando vetor via QuickSort de Inteiros para N=" << valorN[i] << " e seed = " << seed << " E do tipo " << tipo << endl;
             salvarQuickSortInt += "==========================================================================\n";
             salvarQuickSortInt += "Algoritmo QuickSort de Inteiros para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + " E do tipo " + tipo + "\n";
@@ -285,82 +283,31 @@ void loteInsertionSort (int vetor[], int tam) {
     salvarTxt(salvarInsertionSort, "saidasInsertionSort.txt");
 }
 
-void loteHeapSort (int vetor[], int tam) {
+void loteMergeSort(int* vetor, int tam) {
     srand(time(NULL));
     random_shuffle(&vetor[0],&vetor[tam]);
     Ordenacoes ordena;
-    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
+    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
     //for que percorre todos os N valores pedidos no enunciado
     for (int i=0; i < 7; i++){
         //For que realiza ordenacoes com 5 seeds diferentes para cada N
         for (int j=0; j < 5; j++){
             int seed = rand() % valorN[j];
-            ordena.heapsort(vetor, valorN[i]); //Chama o Heapsort
-            cout << "Ordenando vetor via Heapsort de Inteiros para N=" << valorN[i] << " e seed = " << seed << endl;
-            salvarHeapSort += "==========================================================================\n";
-            salvarHeapSort += "Algoritmo Heapsort de Inteiros para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + "\n";
-            salvarHeapSort += "Numero de Trocas:" + to_string(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + to_string(ordena.getNumComparacoes()) + ". Tempo Gasto:" + to_string(ordena.getTempoGasto()) + ".\n";
-            salvarHeapSort += "==========================================================================\n";
-            srand(seed);
-            random_shuffle(&vetor[0],&vetor[tam]);
-            ordena.limpaDados();
-        }
-    }
-    cout << "Funcao em Lote para Heapsort finalizada com sucesso." << endl;
-    salvarTxt(salvarHeapSort, "saidasHeapSort.txt");
-}
-
-void loteMergeSort (int vetor[], int tam) {
-    srand(time(NULL));
-    random_shuffle(&vetor[0],&vetor[tam]);
-    Ordenacoes ordena;
-    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
-
-    //for que percorre todos os N valores pedidos no enunciado
-    for (int i=0; i < 7; i++){
-        //For que realiza ordenacoes com 5 seeds diferentes para cada N
-        for (int j=0; j < 5; j++){
-            int seed = rand() % valorN[j];
-            ordena.MergeSort(vetor, 0, valorN[i]-1); //Chama o MergeSort
-            cout << "Ordenando vetor via Mergesort de Inteiros para N=" << valorN[i] << " e seed = " << seed << endl;
+            ordena.MergeSort(vetor, 0, (valorN[i]-1)); //Chama o merge
+            cout << "Ordenando vetor via Merge Sort de Inteiros para N=" << valorN[i] << " e seed = " << seed << endl;
             salvarMergeSort += "==========================================================================\n";
-            salvarMergeSort += "Algoritmo Mergesort de Inteiros para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + "\n";
+            salvarMergeSort += "Algoritmo Merge Sort de Inteiros para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + "\n";
             salvarMergeSort += "Numero de Trocas:" + to_string(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + to_string(ordena.getNumComparacoes()) + ". Tempo Gasto:" + to_string(ordena.getTempoGasto()) + ".\n";
             salvarMergeSort += "==========================================================================\n";
             srand(seed);
             random_shuffle(&vetor[0],&vetor[tam]);
             ordena.limpaDados();
+            cout<<"valor do i "<<valorN[i]<<endl;
         }
     }
-    cout << "Funcao em Lote para Mergesort finalizada com sucesso." << endl;
+    cout << "Funcao em Lote para Merge Sort finalizada com sucesso." << endl;
     salvarTxt(salvarMergeSort, "saidasMergeSort.txt");
-}
-
-void loteShellSort (int vetor[], int tam) {
-    srand(time(NULL));
-    random_shuffle(&vetor[0],&vetor[tam]);
-    Ordenacoes ordena;
-    int valorN [7] = {1000, 5000, 10000, 50000, 100000, 500000, 1000000};
-
-    //for que percorre todos os N valores pedidos no enunciado
-    for (int i=0; i < 7; i++){
-        //For que realiza ordenacoes com 5 seeds diferentes para cada N
-        for (int j=0; j < 5; j++){
-            int seed = rand() % valorN[j];
-            ordena.shell_sort(vetor, valorN[i]); //Chama o MergeSort
-            cout << "Ordenando vetor via ShellSort de Inteiros para N=" << valorN[i] << " e seed = " << seed << endl;
-            salvarShellSort += "==========================================================================\n";
-            salvarShellSort += "Algoritmo ShellSort de Inteiros para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + "\n";
-            salvarShellSort += "Numero de Trocas:" + to_string(ordena.getNumTrocas()) + ". Numero de Comparacoes:" + to_string(ordena.getNumComparacoes()) + ". Tempo Gasto:" + to_string(ordena.getTempoGasto()) + ".\n";
-            salvarShellSort += "==========================================================================\n";
-            srand(seed);
-            random_shuffle(&vetor[0],&vetor[tam]);
-            ordena.limpaDados();
-        }
-    }
-    cout << "Funcao em Lote para ShellSort finalizada com sucesso." << endl;
-    salvarTxt(salvarShellSort, "saidasShellSort.txt");
 }
 
 
