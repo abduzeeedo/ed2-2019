@@ -12,7 +12,7 @@ class Rating
 private:
 	int userID;//ID do usuario
 	int movieID;//ID do filme
-	float rating; //valor do rating
+	float rating; //valor do rating dado ao filme
 	string timeStamp; //data e hora da pergunta
 public:
 	Rating();//Construtor Sobrecarregado

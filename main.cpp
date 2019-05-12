@@ -14,21 +14,36 @@ using namespace std;
 int main()
 {
     //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV ****************************
-    int tam = 20000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
+    int tam = 5000000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
 
-    Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com tam ratings
-    instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com tam valores do arquivo Ratings.csv
+    Rating** objetos = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com tam ratings
+    instanciaObjArq(objetos, tam); //Atribui valores no vetor exemplo com tam valores do arquivo Ratings.csv
     //*******************************************************************************************************************************
 
-    int vet[20000];
+    int* vet = new int[5000000];
 
     for (int i=0; i < tam; i++){
-        vet[i] = exemplo[i]->getUserID();
-        //cout << vet[i] << endl;
+        vet[i] = objetos[i]->getUserID();
     }
 
-    loteQuickSortInt(vet, 20000, 'r');
-    loteQuickSort(exemplo, 20000);
+    loteInsertionSort(vet, tam);
+
+    /*
+    random_shuffle(&vet[0],&vet[tam]);
+
+    for (int i=0; i < 500; i++){
+        cout << vet[i] << endl;
+    }
+
+    cout << "-----------------------------------------------------------------------------" << endl;
+
+    Ordenacoes ordena;
+
+    ordena.mergesort2(vet, 0, tam);
+
+    for (int i=0; i < 500; i++){
+        cout << vet[i] << endl;
+    }
 
     imprimeMenu();
 
@@ -65,6 +80,7 @@ int main()
     delete [] rating;
     delete [] timestamp;
     */
-    //**
+    //
+    delete [] vet;
     return 0;
 }
