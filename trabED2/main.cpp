@@ -26,10 +26,7 @@ int main()
         vet[i] = objetos[i]->getUserID();
     }
 
-   // loteQuickSortInt(vet, tam, 'm');
-
-    loteMergeSort(vet, tam);
-
+    loteQuickSortInt(vet, tam, 'm');
 
     imprimeMenu();
 
@@ -67,6 +64,6 @@ int main()
     delete [] timestamp;
     */
     //
-        ///delete [] vet;
+    delete [] vet;
     return 0;
 }

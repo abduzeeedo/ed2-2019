@@ -1,0 +1,141 @@
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000 e seed = 340
+Numero de Trocas:257585. Numero de Comparacoes:256586. Tempo Gasto:0.003000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000 e seed = 4800
+Numero de Trocas:246186. Numero de Comparacoes:245187. Tempo Gasto:0.002000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000 e seed = 4749
+Numero de Trocas:256313. Numero de Comparacoes:255314. Tempo Gasto:0.003000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000 e seed = 19561
+Numero de Trocas:248735. Numero de Comparacoes:247736. Tempo Gasto:0.002000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000 e seed = 25823
+Numero de Trocas:249964. Numero de Comparacoes:248965. Tempo Gasto:0.002000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=5000 e seed = 715
+Numero de Trocas:6291799. Numero de Comparacoes:6286800. Tempo Gasto:0.053000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=5000 e seed = 3832
+Numero de Trocas:6277481. Numero de Comparacoes:6272482. Tempo Gasto:0.052000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=5000 e seed = 605
+Numero de Trocas:6216825. Numero de Comparacoes:6211826. Tempo Gasto:0.051000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=5000 e seed = 16446
+Numero de Trocas:6222281. Numero de Comparacoes:6217282. Tempo Gasto:0.052000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=5000 e seed = 7208
+Numero de Trocas:6276474. Numero de Comparacoes:6271475. Tempo Gasto:0.052000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=10000 e seed = 245
+Numero de Trocas:25005864. Numero de Comparacoes:24995865. Tempo Gasto:0.209000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=10000 e seed = 1550
+Numero de Trocas:24560755. Numero de Comparacoes:24550756. Tempo Gasto:0.206000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=10000 e seed = 2211
+Numero de Trocas:24906713. Numero de Comparacoes:24896714. Tempo Gasto:0.208000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=10000 e seed = 20341
+Numero de Trocas:25070448. Numero de Comparacoes:25060449. Tempo Gasto:0.210000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=10000 e seed = 9393
+Numero de Trocas:24881681. Numero de Comparacoes:24871682. Tempo Gasto:0.207000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=50000 e seed = 463
+Numero de Trocas:572933811. Numero de Comparacoes:572883812. Tempo Gasto:4.805000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=50000 e seed = 2628
+Numero de Trocas:589507664. Numero de Comparacoes:589457665. Tempo Gasto:4.951000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=50000 e seed = 8741
+Numero de Trocas:603469687. Numero de Comparacoes:603419688. Tempo Gasto:5.058000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=50000 e seed = 10922
+Numero de Trocas:608913065. Numero de Comparacoes:608863066. Tempo Gasto:5.123000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=50000 e seed = 15518
+Numero de Trocas:608603811. Numero de Comparacoes:608553812. Tempo Gasto:5.101000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=100000 e seed = 506
+Numero de Trocas:2065649625. Numero de Comparacoes:2065549626. Tempo Gasto:17.363001.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=100000 e seed = 3575
+Numero de Trocas:1884196063. Numero de Comparacoes:1884096064. Tempo Gasto:15.878000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=100000 e seed = 3201
+Numero de Trocas:1977263374. Numero de Comparacoes:1977163375. Tempo Gasto:16.622999.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=100000 e seed = 748
+Numero de Trocas:2022212173. Numero de Comparacoes:2022112174. Tempo Gasto:17.021000.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=100000 e seed = 9611
+Numero de Trocas:2071257648. Numero de Comparacoes:2071157649. Tempo Gasto:17.443001.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=500000 e seed = 541
+Numero de Trocas:28575447587. Numero de Comparacoes:28574947588. Tempo Gasto:241.427002.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=500000 e seed = 3048
+Numero de Trocas:9927717337. Numero de Comparacoes:9927217338. Tempo Gasto:83.464996.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=500000 e seed = 2415
+Numero de Trocas:9986094740. Numero de Comparacoes:9985594741. Tempo Gasto:83.976997.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=500000 e seed = 26631
+Numero de Trocas:10064050885. Numero de Comparacoes:10063550886. Tempo Gasto:85.570999.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=500000 e seed = 17631
+Numero de Trocas:10098678226. Numero de Comparacoes:10098178227. Tempo Gasto:84.912003.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000000 e seed = 83
+Numero de Trocas:88239700276. Numero de Comparacoes:88238700277. Tempo Gasto:747.588013.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000000 e seed = 4628
+Numero de Trocas:19964438201. Numero de Comparacoes:19963438202. Tempo Gasto:167.807999.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000000 e seed = 2659
+Numero de Trocas:19998006149. Numero de Comparacoes:19997006150. Tempo Gasto:168.975998.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000000 e seed = 13593
+Numero de Trocas:20073479196. Numero de Comparacoes:20072479197. Tempo Gasto:168.811005.
+==========================================================================
+==========================================================================
+Algoritmo InsertionSort de Inteiros para N=1000000 e seed = 12734
+Numero de Trocas:20137533480. Numero de Comparacoes:20136533481. Tempo Gasto:169.384995.
+==========================================================================
+

@@ -318,9 +318,6 @@ void Ordenacoes::heapsort(int vetor[], int tam)
 
 void Ordenacoes::MergeSort(int* vetor, int indiceEsquerdo, int indiceDireito)
 {
-    clock_t relogio;
-	relogio = clock();
-
     if(indiceEsquerdo < indiceDireito){
         //define o meio
         int meio = indiceEsquerdo + (indiceDireito - indiceEsquerdo)/2;
@@ -335,7 +332,7 @@ void Ordenacoes::MergeSort(int* vetor, int indiceEsquerdo, int indiceDireito)
         //une os dois sub arrays que foram criados
         Merge(vetor, indiceEsquerdo, meio, indiceDireito);
     }
-    tempoGasto = (clock() - relogio) / (double)CLOCKS_PER_SEC;
+
 }
 
 //Junta os dois sub arrays criados com o vetor principal
@@ -345,16 +342,17 @@ void Ordenacoes::Merge(int* vetor, int indiceEsquerdo, int meio, int indiceDirei
 
     int n = meio - indiceEsquerdo + 1; //tamanho do primeiro vetor auxiliar
     int n2 = indiceDireito - meio;   //tamanho do segundo vetor auxiliar
-    int* vetorEsquerdo = new int[n];
-    int* vetorDireito = new int[n2]; //vetores temporarios
+
+    int* vetorEsquerdo;
+    int* vetorDireito; //vetores temporarios
 
     //Passa os elementos da primeira metada para o vetor auxiliar
-    for( i=0; i<n; i++){
-        vetorEsquerdo[i] = vetor[indiceEsquerdo+i];
+    for( i = 0; i < n; i++){
+        vetorEsquerdo[i] = vetor[indiceEsquerdo+1];
     }
     //Passa os elementos da segunda metada para o vetor auxiliar
-    for( j=0; j<n2; j++){
-        vetorDireito[j] = vetor[meio+1+j];
+    for( j = 0; j<n2; j++){
+        vetorDireito[j] = vetor[meio + 1 + j];
     }
 
     //reseta variaveis
@@ -365,18 +363,15 @@ void Ordenacoes::Merge(int* vetor, int indiceEsquerdo, int meio, int indiceDirei
     while(i < n && j < n2){
 
         //caso o valor na esquerda seja menor, passa o valor para o vetor principal
-        if(vetorEsquerdo[i] <= vetorDireito[j]){
+        if(vetorEsquerdo[i] < vetorDireito[j]){
             vetor[k] = vetorEsquerdo[i];
-            numTrocas++;
             //incrementa para passar para a proxima posi��o
             i++;
         } else {
             vetor[k] = vetorDireito[j];
-            numTrocas++;
             //incrementa para passar para a proxima posi��o
             j++;
         }
-        numCompar++;
         k++;
     }
 
@@ -564,6 +559,7 @@ int Ordenacoes::medianaInt(int vet[], int numVal, int inicio, int fim) {
 void Ordenacoes::shell_sort(int vetor[], int tam) {
   int i, j, atual;
   int h = 1;
+
   //de quanto em quanto sera o pulo entre analises
   while(h < tam){
     h = 3*h +1;
