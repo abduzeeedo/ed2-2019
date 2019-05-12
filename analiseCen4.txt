@@ -1,0 +1,88 @@
+Qual algoritmo tem melhor desempenho, considerando a diferentes métricas ?
+
+
+Considere N o número de chaves e M o tamanho da tabela.Utilizamos um fator de carga de 75%, ou seja, N/M = 0,75. 
+
+Observando as tabelas/gráficos com os resultados, nota-se claramente que o tratamento de colisões por ENCADEAMENTO EXTERNO é o de melhor desempenho no que se refere ao número de colisões entre as chaves na tabela.Por outro lado, temos um uso de memória superior aos outros 4 algoritmos : o dobro em relação aos tratamentos de enderaçamento aberto e ligeiramente superior ao encadeamento coalescido.
+
+Dentre algoritmos de enderamento aberto, o que performou melhor foi o tratamento reHash, já que obtém números menores de colisões em todos os casos e usa a mesma quantidade de memória que os outros dois métodos.
+
+Tendo em mãos essas informações , compararemos o rehash com o encadeamento externo para aferirmos qual a melhor abordagem segundo os padrões dos testes.Utilizaremos o produto entre o número de colisões e o espaço utilizado para quantificar a qualidade do algoritmo, já que quanto menos colisões e quanto menor o espaço utlizado melhor ele é, ou seja, quanto menor o valor melhor.
+
+Para as tabelas de  hash com 1000 elementos :
+
+REHASH: 9,73
+ENCADEAMENTO EXTERNO: 6,29
+
+Encadeamento externo tem desempenho 54% maior.
+
+Para as tabelas de  hash com 5000 elementos :
+
+REHASH: 257.84
+ENCADEAMENTO EXTERNO:161.42
+
+Encadeamento externo tem desempenho 59% maior.
+
+Para as tabelas de  hash com 10000 elementos :
+
+REHASH: 1065.69
+ENCADEAMENTO EXTERNO:656.91
+
+Encadeamento externo tem desempenho 62% maior.
+
+Para as tabelas de  hash com 50000 elementos :
+
+REHASH:27265.84
+ENCADEAMENTO EXTERNO:16574.33
+
+Encadeamento externo tem desempenho 64% maior.
+
+Para as tabelas de  hash com 100000 elementos :
+
+REHASH:108205.43
+ENCADEAMENTO EXTERNO:66294.9
+
+Encadeamento externo tem desempenho 63% maior.
+
+Para as tabelas de  hash com 500000 elementos :
+
+REHASH:2888756.34
+ENCADEAMENTO EXTERNO:1684903.45
+
+Encadeamento externo tem desempenho 71% maior.
+
+Para as tabelas de  hash com 1000000 elementos :
+
+REHASH:11290458.85
+ENCADEAMENTO EXTERNO:6683813.34
+
+Encadeamento externo tem desempenho 68% maior.
+
+
+Logo, o mais performático foi o encadeamento externo.
+
+Por quê ?
+
+É bastante claro que a função de hash tem papel determinante no número de colisões mas o modo que elas são tratatadas também influenciam esse número.Por exemplo, no tratamento por sondagem linear, tende-se a formarem blocos grandes, o que aumenta a probabilidade de se colidir uma chave com a outra. Por sondagem quadrática e reHash esse efeito é amortecido. A única vantagem é o menor uso de memória por não lidar com informações adicionais como ponteiros para a próxima posição e por armazenar todos os elementos na própria tabela sem aumentar dinamicamente seu tamanho. 
+
+O tratamento por encadeamento externo, se mostrou o mais eficiente porque quando há uma colisão ele insere essa chave no final da lista, o que inibe as colisões secundárias presentes nos outros 4 algoritmos (quando uma chave colide com outra chave sem ser exatamente pelo seu hash code). 
+
+
+Qual impacto na escolha do tamanho da hash table ?
+
+ Quanto menor foi o fator de carga, ou seja, quanto maior foi o tamanho da tabela, menos colisões houveram, já que há um comportamento de espalhamento maior conforme cresce a tabela, consequentemente diminuindo o tempo de inserção e busca consumidos.
+
+
+Observações :
+
+	O tratamento por encadeamento coalescido teve desempenho bsatante parecido com a sondagem linear no que se refere ao número de colisões. Isso talvez se explique porque ambos tem um comportamento de procura linear após a colisão. a diferença entre os dois, fora obviamente a quantidade de memória utilizada, é a busca por chave. No encadeamento coalescido, a busca por elemento é muito mais rápida, pois temos o "caminho" que devemos percorrer enquanto na sondagem linear a busca é bastante degrada pelo tamanho dos blocos formados.
+
+	Outra observação é que o tempo consumido pelo tratamento por encadeamento externo foi o mais alto em média, isso se explica porque para cada inserção caso haja colisão demora um tempo proporcional ao tamanho da lista de colisões daquele endereço.
+
+
+	Por último, como já citado, se a função de hash não conseguir espalhar os elementos de uma forma uniforme, as operações de busca e inserção nos tratamentos por enderaçamento aberto são bastante danificadas.
+
+
+
+
+
