@@ -27,7 +27,7 @@ long long int Ordenacoes::getNumComparacoes()
 }
 
 //Retorna o tempo gasto pela ordenacao
-double Ordenacoes::getTempoGasto()
+float Ordenacoes::getTempoGasto()
 {
 	return tempoGasto;
 }
@@ -147,7 +147,8 @@ int Ordenacoes::particiona(Rating* vet[], int inicio, int fim, int pos)
 
 	while (j <= fim - 1) //Ele nao vai ate o fim do vetor pois o ultimo elemento eh o pivo que foi jogado para o final no comeco da execucao
 	{
-		if ((vet[j]->getUserID() <= pivo) && ++numCompar)
+	    numCompar++;
+		if ((vet[j]->getUserID() <= pivo))
 		{
 			i++;
 			troca(vet[i], vet[j]);
@@ -199,17 +200,15 @@ void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
 
     while(direita > esquerda) {
 
-      while(userId[esquerda] < pivo) {
-        esquerda = esquerda +1;
-        numCompar++;
+      while(userId[esquerda] < pivo && ++numCompar) {
+        esquerda = esquerda +1;;
         }
-        while(userId[direita] > pivo) {
-            numCompar++;
+        while(userId[direita] > pivo && ++numCompar) {
             direita = direita - 1;
         }
 
         if(esquerda <= direita){
-            numCompar++;
+
             //realiza a troca
             aux = userId[esquerda];
             userId[esquerda] = userId[direita];
@@ -247,19 +246,19 @@ void Ordenacoes::constroiHeap(int vetor[], int tam, int indice_raiz)
 
 	while (indice_raiz < tam / 2) {
 		ramificacao = 2 * indice_raiz + 1;
+		numCompar++;
 
-		if (ramificacao < tam - 1 && vetor[ramificacao] < vetor[ramificacao + 1]) {
+		if (ramificacao < tam - 1 && vetor[ramificacao] < vetor[ramificacao + 1] && ++numCompar) {
 			ramificacao++;
 
 		}
-		if (valor >= vetor[ramificacao]) {//Identifica o max-heap
-			numTrocas++;
+		if (valor >= vetor[ramificacao] && ++numCompar) {//Identifica o max-heap
 			break;
 		}
 
 		vetor[indice_raiz] = vetor[ramificacao];
+		numTrocas++;
 		indice_raiz = ramificacao;
-		++numCompar;
 	}
 	vetor[indice_raiz] = valor;
 }
@@ -397,7 +396,6 @@ int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 	vet[pospiv] = vet[fim];
 	vet[fim] = aux;
 	pospiv = fim; //Volta a posicao do pivo como sendo o fim do vetor que vai ser particionado
-	numTrocas++;
 
 	//Variaveis para percorrer no vetor particionado
 	int i = inicio - 1; //Comeca antes do inicio pq na primeira troca ele ja vai virar o inicio
@@ -405,7 +403,8 @@ int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 
 	while (j <= fim - 1) //Ele nao vai ate o fim do vetor pois o ultimo elemento eh o pivo que foi jogado para o final no comeco da execucao
 	{
-		if ((vet[j] <= pivo) && ++numCompar)
+	    numCompar++;
+		if ((vet[j] < pivo))
 		{
 			i++;
 			//troca(vet[i], vet[j]);
@@ -421,7 +420,6 @@ int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 	aux = vet[i + 1];
     vet[i + 1] = vet[pospiv];
     vet[pospiv] = aux;
-    numTrocas++;
 
 	return i + 1;
 }
@@ -463,8 +461,8 @@ void Ordenacoes::quicksortInteiros(int vet[], int ini, int fim, char tipo)
 		{
 			int posMediana = medianaInt(vet, 5, ini, fim); //posMediana recebe a posicao calculada na funcao Mediana com 5 valores
 			int part = particionaInt(vet, ini, fim, posMediana);
-			quicksortInteiros(vet, ini, part - 1, 'm');
-			quicksortInteiros(vet, part + 1, fim, 'm');
+			quicksortInteiros(vet, ini, part - 1, 'M');
+			quicksortInteiros(vet, part + 1, fim, 'M');
 		}
 	}
 
@@ -515,33 +513,55 @@ int Ordenacoes::medianaInt(int vet[], int numVal, int inicio, int fim) {
 
 	int posMediana;//posicao a ser calculada e retornada da funcao
 	int posRand;//Posicao Calculada Randomicamente
+
 	if (numVal == 3) { //para k=3
-		Rating** vetor = new Rating*[3];
+
+        unsigned long int posicoes[3];
+
 		for (int i = 0; i < 3; i++) {
-			srand(i);
-			posRand = rand() % (fim - inicio); //Atribui a posicao randomica do vetor original
-			vetor[i] = new Rating(vet[posRand], posRand, 0 , ""); //Atribui a MovieID a posicao em si, e em UserID o valor do UserID contido nesta posicao
+			srand(time(NULL));
+			posRand = rand() % fim + inicio; //Atribui a posicao randomica do vetor original
+            posicoes [i] = posRand;
 		}
-		Ordenacoes ordena2;
-		ordena2.insertionsort(vetor, 0, 3);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
-		posMediana = vetor[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que é a posicao original do vetor de Ratings
-		return posMediana;
+
+		int userIDaux [3] = {vet[posicoes[0]], vet[posicoes[1]],vet[posicoes[2]]};
+        int userID [3] = {vet[posicoes[0]], vet[posicoes[1]],vet[posicoes[2]]};
+
+        Ordenacoes ordena2;
+        ordena2.insertionsortInt(userIDaux, 0, 5);
+
+        for (int i=0; i<3; i++){
+            if (userIDaux[1] == userID[i]){
+                posMediana = posicoes[i];
+                return posMediana;
+            }
+        }
 	}
 
-	if (numVal == 5) { //para k=3
-		Rating** vetor = new Rating*[5];
+	if (numVal == 5) { //para k=5
+
+        unsigned long int posicoes[5];
+
 		for (int i = 0; i < 5; i++) {
-			srand(i);
-			posRand = rand() % (fim - inicio); //Atribui a posicao randomica do vetor original
-			vetor[i] = new Rating(vet[posRand], posRand, 0 , ""); //Atribui a MovieID a posicao em si, e em UserID o valor do UserID contido nesta posicao
+			srand(time(NULL));
+			posRand = rand() % fim + inicio; //Atribui a posicao randomica do vetor original
+            posicoes [i] = posRand;
 		}
-		Ordenacoes ordena2;
-		ordena2.insertionsort(vetor, 0, 5);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
-		posMediana = vetor[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que é a posicao original do vetor de Ratings
-		return posMediana;
+
+		int userIDaux [5] = {vet[posicoes[0]], vet[posicoes[1]],vet[posicoes[2]],vet[posicoes[3]],vet[posicoes[4]]};
+        int userID [5] = {vet[posicoes[0]], vet[posicoes[1]],vet[posicoes[2]],vet[posicoes[3]],vet[posicoes[4]]};
+
+        Ordenacoes ordena2;
+        ordena2.insertionsortInt(userIDaux, 0, 5);
+
+        for (int i=0; i<5; i++){
+            if (userIDaux[3] == userID[i]){
+                posMediana = posicoes[i];
+                return posMediana;
+            }
+        }
 	}
 	return inicio; //caso nao entre em nenhuma condicao, passa a posicao inicial como valor
-
 }
 void Ordenacoes::shell_sort(int vetor[], int tam) {
 

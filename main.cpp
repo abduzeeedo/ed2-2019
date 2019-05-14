@@ -14,19 +14,19 @@ using namespace std;
 int main()
 {
     //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV ****************************
-    int tam = 5000000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
+    int tam = 2000000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
 
     Rating** objetos = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com tam ratings
     instanciaObjArq(objetos, tam); //Atribui valores no vetor exemplo com tam valores do arquivo Ratings.csv
     //*******************************************************************************************************************************
 
-    int* vet = new int[5000000];
+    int* vet = new int[2000000];
 
     for (int i=0; i < tam; i++){
         vet[i] = objetos[i]->getUserID();
     }
 
-    loteInsertionSort(vet, tam);
+    loteQuickSortInt(vet, tam, 'm');
 
     /*
     random_shuffle(&vet[0],&vet[tam]);

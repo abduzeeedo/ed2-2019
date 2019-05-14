@@ -244,7 +244,7 @@ void loteQuickSortInt (int vetor[], int tam, char tipo) {
         //For que realiza ordenacoes com 5 seeds diferentes para cada N
         for (int j=0; j < 5; j++){
             int seed = rand() % valorN[j];
-            ordena.quicksortInt(vetor, 0, valorN[i]; //Chama o QuickSort
+            ordena.quicksortInteiros(vetor, 0, valorN[i], tipo); //Chama o QuickSort
             cout << "Ordenando vetor via QuickSort de Inteiros para N=" << valorN[i] << " e seed = " << seed << " E do tipo " << tipo << endl;
             salvarQuickSortInt += "==========================================================================\n";
             salvarQuickSortInt += "Algoritmo QuickSort de Inteiros para N=" + to_string(valorN[i]) + " e seed = " + to_string(seed) + " E do tipo " + tipo + "\n";
@@ -256,7 +256,27 @@ void loteQuickSortInt (int vetor[], int tam, char tipo) {
         }
     }
     cout << "Funcao em Lote para QuickSort finalizada com sucesso." << endl;
-    salvarTxt(salvarQuickSortInt, "saidaQuickSortMediana3.txt");
+
+    if (tipo == 'r'){
+        salvarTxt(salvarQuickSortInt, "saidasQuickSortInt.txt");
+        salvarQuickSortInt = "";
+    }
+    if (tipo == 'm'){
+        salvarTxt(salvarQuickSortInt, "saidasQuickSortm3.txt");
+        salvarQuickSortInt = "";
+    }
+    if (tipo == 'M'){
+        salvarTxt(salvarQuickSortInt, "saidasQuickSortm5.txt");
+        salvarQuickSortInt = "";
+    }
+    if (tipo == 'i'){
+        salvarTxt(salvarQuickSortInt, "saidasQuickSorti10.txt");
+        salvarQuickSortInt = "";
+    }
+    if (tipo == 'I'){
+        salvarTxt(salvarQuickSortInt, "saidasQuickSorti100.txt");
+        salvarQuickSortInt = "";
+    }
 }
 
 void loteInsertionSort (int vetor[], int tam) {

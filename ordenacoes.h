@@ -17,7 +17,7 @@ public:
 	~Ordenacoes();//Destrutor
 	long long int getNumTrocas();//Retorna o numero de trocas do objeto
 	long long int getNumComparacoes();//Retorna o numero de comparacoes do objeto
-	double getTempoGasto();//Retorna o tempo gasto na execucao da ordenacao do objeto
+	float getTempoGasto();//Retorna o tempo gasto na execucao da ordenacao do objeto
     void limpaDados();//Funcao usada zerar os atributos a fim de preparar para outra ordenacao
 
 	//----------------------- Algoritmo InsertionSort --------------------------------------
