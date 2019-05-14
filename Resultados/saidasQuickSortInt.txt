@@ -1,141 +1,141 @@
 ==========================================================================
-Algoritmo QuickSort para N=1000 e seed = 787
-Numero de Trocas:4289. Numero de Comparacoes:11122. Tempo Gasto:0.000000.
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 230 E do tipo r
+Numero de Trocas:5471. Numero de Comparacoes:11933. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000 e seed = 996
-Numero de Trocas:5563. Numero de Comparacoes:11851. Tempo Gasto:0.000000.
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 1253 E do tipo r
+Numero de Trocas:5050. Numero de Comparacoes:12330. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000 e seed = 1222
-Numero de Trocas:4957. Numero de Comparacoes:12631. Tempo Gasto:0.000000.
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 3639 E do tipo r
+Numero de Trocas:5190. Numero de Comparacoes:11929. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000 e seed = 28004
-Numero de Trocas:5649. Numero de Comparacoes:11110. Tempo Gasto:0.001000.
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 20404 E do tipo r
+Numero de Trocas:6276. Numero de Comparacoes:12500. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000 e seed = 31094
-Numero de Trocas:5282. Numero de Comparacoes:11001. Tempo Gasto:0.001000.
+Algoritmo QuickSort de Inteiros para N=1000 e seed = 31169 E do tipo r
+Numero de Trocas:6006. Numero de Comparacoes:11753. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=5000 e seed = 255
-Numero de Trocas:28220. Numero de Comparacoes:84186. Tempo Gasto:0.003000.
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 471 E do tipo r
+Numero de Trocas:29954. Numero de Comparacoes:86540. Tempo Gasto:0.002000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=5000 e seed = 1402
-Numero de Trocas:35405. Numero de Comparacoes:87634. Tempo Gasto:0.003000.
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 2017 E do tipo r
+Numero de Trocas:32972. Numero de Comparacoes:85665. Tempo Gasto:0.002000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=5000 e seed = 2400
-Numero de Trocas:28531. Numero de Comparacoes:78898. Tempo Gasto:0.003000.
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 1035 E do tipo r
+Numero de Trocas:28492. Numero de Comparacoes:87139. Tempo Gasto:0.002000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=5000 e seed = 19636
-Numero de Trocas:34474. Numero de Comparacoes:79911. Tempo Gasto:0.003000.
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 2684 E do tipo r
+Numero de Trocas:31452. Numero de Comparacoes:83559. Tempo Gasto:0.001000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=5000 e seed = 5859
-Numero de Trocas:31802. Numero de Comparacoes:78382. Tempo Gasto:0.002000.
+Algoritmo QuickSort de Inteiros para N=5000 e seed = 2542 E do tipo r
+Numero de Trocas:30179. Numero de Comparacoes:80351. Tempo Gasto:0.002000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=10000 e seed = 86
-Numero de Trocas:71061. Numero de Comparacoes:196921. Tempo Gasto:0.007000.
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 473 E do tipo r
+Numero de Trocas:60732. Numero de Comparacoes:190666. Tempo Gasto:0.004000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=10000 e seed = 843
-Numero de Trocas:64606. Numero de Comparacoes:199215. Tempo Gasto:0.006000.
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 2357 E do tipo r
+Numero de Trocas:68563. Numero de Comparacoes:192434. Tempo Gasto:0.003000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=10000 e seed = 4548
-Numero de Trocas:66428. Numero de Comparacoes:189011. Tempo Gasto:0.005000.
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 7494 E do tipo r
+Numero de Trocas:67988. Numero de Comparacoes:188378. Tempo Gasto:0.003000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=10000 e seed = 13113
-Numero de Trocas:81157. Numero de Comparacoes:193617. Tempo Gasto:0.007000.
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 32633 E do tipo r
+Numero de Trocas:70056. Numero de Comparacoes:191082. Tempo Gasto:0.004000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=10000 e seed = 9299
-Numero de Trocas:68953. Numero de Comparacoes:184564. Tempo Gasto:0.007000.
+Algoritmo QuickSort de Inteiros para N=10000 e seed = 16350 E do tipo r
+Numero de Trocas:63958. Numero de Comparacoes:196410. Tempo Gasto:0.004000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=50000 e seed = 641
-Numero de Trocas:371468. Numero de Comparacoes:1959804. Tempo Gasto:0.049000.
+Algoritmo QuickSort de Inteiros para N=50000 e seed = 649 E do tipo r
+Numero de Trocas:363725. Numero de Comparacoes:1907215. Tempo Gasto:0.022000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=50000 e seed = 3014
-Numero de Trocas:365427. Numero de Comparacoes:1911753. Tempo Gasto:0.050000.
+Algoritmo QuickSort de Inteiros para N=50000 e seed = 3840 E do tipo r
+Numero de Trocas:400815. Numero de Comparacoes:1937624. Tempo Gasto:0.025000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=50000 e seed = 602
-Numero de Trocas:401011. Numero de Comparacoes:1936149. Tempo Gasto:0.050000.
+Algoritmo QuickSort de Inteiros para N=50000 e seed = 2036 E do tipo r
+Numero de Trocas:396494. Numero de Comparacoes:1989089. Tempo Gasto:0.023000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=50000 e seed = 23784
-Numero de Trocas:395010. Numero de Comparacoes:1981129. Tempo Gasto:0.051000.
+Algoritmo QuickSort de Inteiros para N=50000 e seed = 12931 E do tipo r
+Numero de Trocas:409047. Numero de Comparacoes:1938720. Tempo Gasto:0.023000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=50000 e seed = 4490
-Numero de Trocas:380358. Numero de Comparacoes:1894231. Tempo Gasto:0.050000.
+Algoritmo QuickSort de Inteiros para N=50000 e seed = 22330 E do tipo r
+Numero de Trocas:376100. Numero de Comparacoes:1894634. Tempo Gasto:0.022000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=100000 e seed = 988
-Numero de Trocas:732826. Numero de Comparacoes:5806191. Tempo Gasto:0.134000.
+Algoritmo QuickSort de Inteiros para N=100000 e seed = 778 E do tipo r
+Numero de Trocas:716905. Numero de Comparacoes:5762549. Tempo Gasto:0.058000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=100000 e seed = 2628
-Numero de Trocas:712115. Numero de Comparacoes:6118063. Tempo Gasto:0.135000.
+Algoritmo QuickSort de Inteiros para N=100000 e seed = 267 E do tipo r
+Numero de Trocas:801760. Numero de Comparacoes:6183119. Tempo Gasto:0.066000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=100000 e seed = 1758
-Numero de Trocas:731645. Numero de Comparacoes:6306194. Tempo Gasto:0.139000.
+Algoritmo QuickSort de Inteiros para N=100000 e seed = 142 E do tipo r
+Numero de Trocas:767789. Numero de Comparacoes:6413949. Tempo Gasto:0.060000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=100000 e seed = 10511
-Numero de Trocas:732507. Numero de Comparacoes:6496116. Tempo Gasto:0.145000.
+Algoritmo QuickSort de Inteiros para N=100000 e seed = 1627 E do tipo r
+Numero de Trocas:726342. Numero de Comparacoes:6450198. Tempo Gasto:0.059000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=100000 e seed = 6919
-Numero de Trocas:713828. Numero de Comparacoes:6565132. Tempo Gasto:0.143000.
+Algoritmo QuickSort de Inteiros para N=100000 e seed = 21511 E do tipo r
+Numero de Trocas:721080. Numero de Comparacoes:6597470. Tempo Gasto:0.061000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=500000 e seed = 129
-Numero de Trocas:4339692. Numero de Comparacoes:78675276. Tempo Gasto:1.488000.
+Algoritmo QuickSort de Inteiros para N=500000 e seed = 499 E do tipo r
+Numero de Trocas:4089563. Numero de Comparacoes:78725494. Tempo Gasto:0.528000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=500000 e seed = 218
-Numero de Trocas:4012471. Numero de Comparacoes:81872570. Tempo Gasto:1.502000.
+Algoritmo QuickSort de Inteiros para N=500000 e seed = 177 E do tipo r
+Numero de Trocas:4111380. Numero de Comparacoes:81788409. Tempo Gasto:0.535000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=500000 e seed = 7513
-Numero de Trocas:4130298. Numero de Comparacoes:85047395. Tempo Gasto:1.557000.
+Algoritmo QuickSort de Inteiros para N=500000 e seed = 7944 E do tipo r
+Numero de Trocas:3771809. Numero de Comparacoes:84606772. Tempo Gasto:0.549000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=500000 e seed = 14528
-Numero de Trocas:4142066. Numero de Comparacoes:87577544. Tempo Gasto:1.590000.
+Algoritmo QuickSort de Inteiros para N=500000 e seed = 10855 E do tipo r
+Numero de Trocas:4272358. Numero de Comparacoes:87415165. Tempo Gasto:0.562000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=500000 e seed = 16550
-Numero de Trocas:3928062. Numero de Comparacoes:90239648. Tempo Gasto:1.626000.
+Algoritmo QuickSort de Inteiros para N=500000 e seed = 24058 E do tipo r
+Numero de Trocas:4081187. Numero de Comparacoes:90060166. Tempo Gasto:0.574000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000000 e seed = 611
-Numero de Trocas:9156579. Numero de Comparacoes:206045812. Tempo Gasto:3.736000.
+Algoritmo QuickSort de Inteiros para N=1000000 e seed = 997 E do tipo r
+Numero de Trocas:8803472. Numero de Comparacoes:204546144. Tempo Gasto:1.283000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000000 e seed = 2281
-Numero de Trocas:8057509. Numero de Comparacoes:206615279. Tempo Gasto:3.678000.
+Algoritmo QuickSort de Inteiros para N=1000000 e seed = 1125 E do tipo r
+Numero de Trocas:8429092. Numero de Comparacoes:206509812. Tempo Gasto:1.284000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000000 e seed = 4376
-Numero de Trocas:8089800. Numero de Comparacoes:209435605. Tempo Gasto:3.729000.
+Algoritmo QuickSort de Inteiros para N=1000000 e seed = 4882 E do tipo r
+Numero de Trocas:8260366. Numero de Comparacoes:209348388. Tempo Gasto:1.302000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000000 e seed = 4543
-Numero de Trocas:8319764. Numero de Comparacoes:213439576. Tempo Gasto:3.805000.
+Algoritmo QuickSort de Inteiros para N=1000000 e seed = 19086 E do tipo r
+Numero de Trocas:8567392. Numero de Comparacoes:212275749. Tempo Gasto:1.312000.
 ==========================================================================
 ==========================================================================
-Algoritmo QuickSort para N=1000000 e seed = 7530
-Numero de Trocas:8800883. Numero de Comparacoes:216989849. Tempo Gasto:3.904000.
+Algoritmo QuickSort de Inteiros para N=1000000 e seed = 14272 E do tipo r
+Numero de Trocas:8449529. Numero de Comparacoes:216382817. Tempo Gasto:1.417000.
 ==========================================================================
 
