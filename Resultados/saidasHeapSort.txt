@@ -1,141 +1,141 @@
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000 e seed = 217
-Numero de Trocas:1359. Numero de Comparacoes:8071. Tempo Gasto:0.000000.
+Algoritmo Heapsort de Inteiros para N=1000 e seed = 424
+Numero de Trocas:9091. Numero de Comparacoes:12832. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000 e seed = 1971
-Numero de Trocas:1361. Numero de Comparacoes:8067. Tempo Gasto:0.000000.
+Algoritmo Heapsort de Inteiros para N=1000 e seed = 1961
+Numero de Trocas:9085. Numero de Comparacoes:12813. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000 e seed = 5232
-Numero de Trocas:1378. Numero de Comparacoes:8034. Tempo Gasto:0.000000.
+Algoritmo Heapsort de Inteiros para N=1000 e seed = 7483
+Numero de Trocas:9087. Numero de Comparacoes:12829. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000 e seed = 12285
-Numero de Trocas:1354. Numero de Comparacoes:8097. Tempo Gasto:0.000000.
+Algoritmo Heapsort de Inteiros para N=1000 e seed = 13796
+Numero de Trocas:9102. Numero de Comparacoes:12880. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000 e seed = 9031
-Numero de Trocas:1350. Numero de Comparacoes:8070. Tempo Gasto:0.000000.
+Algoritmo Heapsort de Inteiros para N=1000 e seed = 5227
+Numero de Trocas:9099. Numero de Comparacoes:12870. Tempo Gasto:0.000000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=5000 e seed = 872
-Numero de Trocas:6733. Numero de Comparacoes:52164. Tempo Gasto:0.002000.
+Algoritmo Heapsort de Inteiros para N=5000 e seed = 127
+Numero de Trocas:57038. Numero de Comparacoes:81411. Tempo Gasto:0.001000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=5000 e seed = 1786
-Numero de Trocas:6740. Numero de Comparacoes:52155. Tempo Gasto:0.002000.
+Algoritmo Heapsort de Inteiros para N=5000 e seed = 2645
+Numero de Trocas:57136. Numero de Comparacoes:81449. Tempo Gasto:0.002000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=5000 e seed = 2700
-Numero de Trocas:6705. Numero de Comparacoes:52162. Tempo Gasto:0.002000.
+Algoritmo Heapsort de Inteiros para N=5000 e seed = 1081
+Numero de Trocas:57067. Numero de Comparacoes:81483. Tempo Gasto:0.002000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=5000 e seed = 3613
-Numero de Trocas:6780. Numero de Comparacoes:52072. Tempo Gasto:0.002000.
+Algoritmo Heapsort de Inteiros para N=5000 e seed = 27837
+Numero de Trocas:57094. Numero de Comparacoes:81576. Tempo Gasto:0.002000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=5000 e seed = 17948
-Numero de Trocas:6786. Numero de Comparacoes:52079. Tempo Gasto:0.002000.
+Algoritmo Heapsort de Inteiros para N=5000 e seed = 28107
+Numero de Trocas:57094. Numero de Comparacoes:81716. Tempo Gasto:0.001000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=10000 e seed = 33
-Numero de Trocas:13535. Numero de Comparacoes:114120. Tempo Gasto:0.003000.
+Algoritmo Heapsort de Inteiros para N=10000 e seed = 934
+Numero de Trocas:124282. Numero de Comparacoes:178056. Tempo Gasto:0.003000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=10000 e seed = 1018
-Numero de Trocas:13521. Numero de Comparacoes:114193. Tempo Gasto:0.004000.
+Algoritmo Heapsort de Inteiros para N=10000 e seed = 4416
+Numero de Trocas:124143. Numero de Comparacoes:178203. Tempo Gasto:0.003000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=10000 e seed = 225
-Numero de Trocas:13509. Numero de Comparacoes:114158. Tempo Gasto:0.003000.
+Algoritmo Heapsort de Inteiros para N=10000 e seed = 6443
+Numero de Trocas:124233. Numero de Comparacoes:178305. Tempo Gasto:0.004000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=10000 e seed = 3445
-Numero de Trocas:13571. Numero de Comparacoes:114144. Tempo Gasto:0.004000.
+Algoritmo Heapsort de Inteiros para N=10000 e seed = 32087
+Numero de Trocas:124230. Numero de Comparacoes:178225. Tempo Gasto:0.004000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=10000 e seed = 20478
-Numero de Trocas:13488. Numero de Comparacoes:114166. Tempo Gasto:0.003000.
+Algoritmo Heapsort de Inteiros para N=10000 e seed = 22676
+Numero de Trocas:124230. Numero de Comparacoes:178065. Tempo Gasto:0.003000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=50000 e seed = 10
-Numero de Trocas:66515. Numero de Comparacoes:689315. Tempo Gasto:0.020000.
+Algoritmo Heapsort de Inteiros para N=50000 e seed = 490
+Numero de Trocas:739335. Numero de Comparacoes:1064644. Tempo Gasto:0.020000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=50000 e seed = 408
-Numero de Trocas:67385. Numero de Comparacoes:686849. Tempo Gasto:0.021000.
+Algoritmo Heapsort de Inteiros para N=50000 e seed = 1680
+Numero de Trocas:737133. Numero de Comparacoes:1064801. Tempo Gasto:0.020000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=50000 e seed = 51
-Numero de Trocas:68009. Numero de Comparacoes:685769. Tempo Gasto:0.021000.
+Algoritmo Heapsort de Inteiros para N=50000 e seed = 2052
+Numero de Trocas:735999. Numero de Comparacoes:1064316. Tempo Gasto:0.021000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=50000 e seed = 15429
-Numero de Trocas:68151. Numero de Comparacoes:685382. Tempo Gasto:0.020000.
+Algoritmo Heapsort de Inteiros para N=50000 e seed = 4584
+Numero de Trocas:735450. Numero de Comparacoes:1063822. Tempo Gasto:0.021000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=50000 e seed = 3803
-Numero de Trocas:67744. Numero de Comparacoes:685656. Tempo Gasto:0.022000.
+Algoritmo Heapsort de Inteiros para N=50000 e seed = 27100
+Numero de Trocas:735328. Numero de Comparacoes:1064695. Tempo Gasto:0.020000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=100000 e seed = 448
-Numero de Trocas:129267. Numero de Comparacoes:1481554. Tempo Gasto:0.046000.
+Algoritmo Heapsort de Inteiros para N=100000 e seed = 200
+Numero de Trocas:1581951. Numero de Comparacoes:2277059. Tempo Gasto:0.044000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=100000 e seed = 3492
-Numero de Trocas:128942. Numero de Comparacoes:1482593. Tempo Gasto:0.043000.
+Algoritmo Heapsort de Inteiros para N=100000 e seed = 520
+Numero de Trocas:1582336. Numero de Comparacoes:2278876. Tempo Gasto:0.043000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=100000 e seed = 1046
-Numero de Trocas:130326. Numero de Comparacoes:1478238. Tempo Gasto:0.043000.
+Algoritmo Heapsort de Inteiros para N=100000 e seed = 7413
+Numero de Trocas:1578266. Numero de Comparacoes:2276127. Tempo Gasto:0.043000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=100000 e seed = 9803
-Numero de Trocas:131406. Numero de Comparacoes:1475028. Tempo Gasto:0.044000.
+Algoritmo Heapsort de Inteiros para N=100000 e seed = 1163
+Numero de Trocas:1576117. Numero de Comparacoes:2274541. Tempo Gasto:0.042000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=100000 e seed = 8968
-Numero de Trocas:131605. Numero de Comparacoes:1474183. Tempo Gasto:0.046000.
+Algoritmo Heapsort de Inteiros para N=100000 e seed = 1441
+Numero de Trocas:1573497. Numero de Comparacoes:2273284. Tempo Gasto:0.041000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=500000 e seed = 821
-Numero de Trocas:592628. Numero de Comparacoes:8627918. Tempo Gasto:0.245000.
+Algoritmo Heapsort de Inteiros para N=500000 e seed = 861
+Numero de Trocas:9127467. Numero de Comparacoes:13117385. Tempo Gasto:0.250000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=500000 e seed = 3830
-Numero de Trocas:561093. Numero de Comparacoes:8703762. Tempo Gasto:0.233000.
+Algoritmo Heapsort de Inteiros para N=500000 e seed = 1541
+Numero de Trocas:9205010. Numero de Comparacoes:13162733. Tempo Gasto:0.245000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=500000 e seed = 4679
-Numero de Trocas:561260. Numero de Comparacoes:8703346. Tempo Gasto:0.229000.
+Algoritmo Heapsort de Inteiros para N=500000 e seed = 7226
+Numero de Trocas:9203741. Numero de Comparacoes:13160999. Tempo Gasto:0.239000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=500000 e seed = 20615
-Numero de Trocas:560949. Numero de Comparacoes:8703741. Tempo Gasto:0.236000.
+Algoritmo Heapsort de Inteiros para N=500000 e seed = 8611
+Numero de Trocas:9204183. Numero de Comparacoes:13162672. Tempo Gasto:0.240000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=500000 e seed = 14628
-Numero de Trocas:562022. Numero de Comparacoes:8701118. Tempo Gasto:0.236000.
+Algoritmo Heapsort de Inteiros para N=500000 e seed = 15130
+Numero de Trocas:9203332. Numero de Comparacoes:13159271. Tempo Gasto:0.238000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000000 e seed = 549
-Numero de Trocas:1130522. Numero de Comparacoes:18421388. Tempo Gasto:0.524000.
+Algoritmo Heapsort de Inteiros para N=1000000 e seed = 776
+Numero de Trocas:19420066. Numero de Comparacoes:27815935. Tempo Gasto:0.540000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000000 e seed = 2289
-Numero de Trocas:1109233. Numero de Comparacoes:18433355. Tempo Gasto:0.480000.
+Algoritmo Heapsort de Inteiros para N=1000000 e seed = 4927
+Numero de Trocas:19435413. Numero de Comparacoes:27829248. Tempo Gasto:0.550000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000000 e seed = 8529
-Numero de Trocas:1109220. Numero de Comparacoes:18433116. Tempo Gasto:0.488000.
+Algoritmo Heapsort de Inteiros para N=1000000 e seed = 3801
+Numero de Trocas:19434432. Numero de Comparacoes:27828938. Tempo Gasto:0.495000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000000 e seed = 28158
-Numero de Trocas:1109387. Numero de Comparacoes:18432849. Tempo Gasto:0.494000.
+Algoritmo Heapsort de Inteiros para N=1000000 e seed = 17807
+Numero de Trocas:19433843. Numero de Comparacoes:27827221. Tempo Gasto:0.493000.
 ==========================================================================
 ==========================================================================
-Algoritmo Heapsort de Inteiros para N=1000000 e seed = 3992
-Numero de Trocas:1108602. Numero de Comparacoes:18432999. Tempo Gasto:0.519000.
+Algoritmo Heapsort de Inteiros para N=1000000 e seed = 1604
+Numero de Trocas:19432726. Numero de Comparacoes:27827822. Tempo Gasto:0.493000.
 ==========================================================================
 
