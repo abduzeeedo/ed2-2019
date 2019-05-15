@@ -32,9 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="InsertionSort.cpp" />
-		<Unit filename="InsertionSort.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="ordenacoes.cpp" />
+		<Unit filename="ordenacoes.h" />
 		<Unit filename="rating.cpp" />
 		<Unit filename="rating.h" />
 		<Extensions>
