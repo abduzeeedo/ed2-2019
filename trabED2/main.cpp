@@ -7,33 +7,26 @@
 #include "ordenacoes.h"
 #include "funcoesGerais.h"
 #include <ctime>
+#include <algorithm>
 
 using namespace std;
 
 int main()
 {
     //**************INSTANCIANDO VETOR DE OBJETOS, INSERINDO INFOS DO ARQUIVO CSV ****************************
-    int tam = 20000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
+    int tam = 5000000; // TAMANHO DO VETOR DE OBJETOS A SER INSTANCIADO E IMPRESSO EM TELA
 
-    Rating** exemplo = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com tam ratings
-    instanciaObjArq(exemplo, tam); //Atribui valores no vetor exemplo com tam valores do arquivo Ratings.csv
+    Rating** objetos = new Rating*[tam]; //exemplo de como instanciar um vetor da classe Ratings com tam ratings
+    instanciaObjArq(objetos, tam); //Atribui valores no vetor exemplo com tam valores do arquivo Ratings.csv
     //*******************************************************************************************************************************
 
-    int vet[100];
+    int* vet = new int[5000000];
 
-    for (int i=0; i < 100; i++){
-        vet[i] = exemplo[i]->getUserID();
-        cout << vet[i] << endl;
+    for (int i=0; i < tam; i++){
+        vet[i] = objetos[i]->getUserID();
     }
 
-
-
-    Ordenacoes ordena;
-    ordena.shell_sort(vet, 100);
-    cout << "ORDENADO:" << endl;
-    for (int i=0; i < 100; i++){
-        cout << vet[i] << endl;
-    }
+    loteQuickSortInt(vet, tam, 'm');
 
     imprimeMenu();
 
@@ -70,6 +63,7 @@ int main()
     delete [] rating;
     delete [] timestamp;
     */
-    //**
+    //
+    delete [] vet;
     return 0;
 }

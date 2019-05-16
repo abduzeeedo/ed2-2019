@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1557432840 source:c:\users\bruno\documents\projetos codeblocks\trabed2\main.cpp
+1557619054 source:c:\users\bruno\documents\projetos codeblocks\trabed2\main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -10,23 +10,23 @@
 	<ctime>
 	<algorithm>
 
-1557431842 source:c:\users\bruno\documents\projetos codeblocks\trabed2\ordenacoes.cpp
+1557622243 source:c:\users\bruno\documents\projetos codeblocks\trabed2\ordenacoes.cpp
 	"ordenacoes.h"
 
 1555010183 source:c:\users\bruno\documents\projetos codeblocks\trabed2\rating.cpp
 	"rating.h"
 
-1555010211 c:\users\bruno\documents\projetos codeblocks\trabed2\rating.h
+1557617987 c:\users\bruno\documents\projetos codeblocks\trabed2\rating.h
 	<string>
 	<stdlib.h>
 	<iostream>
 
-1556829447 c:\users\bruno\documents\projetos codeblocks\trabed2\ordenacoes.h
+1557622238 c:\users\bruno\documents\projetos codeblocks\trabed2\ordenacoes.h
 	"rating.h"
 	<iostream>
 	<ctime>
 
-1557431842 source:c:\users\bruno\documents\projetos codeblocks\trabed2\funcoesgerais.cpp
+1557618531 source:c:\users\bruno\documents\projetos codeblocks\trabed2\funcoesgerais.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -35,8 +35,9 @@
 	"ordenacoes.h"
 	"funcoesGerais.h"
 	<ctime>
+	<algorithm>
 
-1557429874 c:\users\bruno\documents\projetos codeblocks\trabed2\funcoesgerais.h
+1557530743 c:\users\bruno\documents\projetos codeblocks\trabed2\funcoesgerais.h
 	<iostream>
 	<fstream>
 	<string>

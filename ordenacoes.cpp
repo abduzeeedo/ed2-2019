@@ -15,19 +15,19 @@ Ordenacoes::~Ordenacoes()
 }
 
 //Retorna o numero de trocas feitas
-int Ordenacoes::getNumTrocas()
+long long int Ordenacoes::getNumTrocas()
 {
 	return numTrocas;
 }
 
 //Retorna o numero de comparacoes feitas
-int Ordenacoes::getNumComparacoes()
+long long int Ordenacoes::getNumComparacoes()
 {
 	return numCompar;
 }
 
 //Retorna o tempo gasto pela ordenacao
-double Ordenacoes::getTempoGasto()
+float Ordenacoes::getTempoGasto()
 {
 	return tempoGasto;
 }
@@ -40,13 +40,14 @@ void Ordenacoes::limpaDados()
 	tempoGasto = 0;
 }
 
-//Algoritmo InsertionSort
+//Algoritmo InsertionSort para um vetor de objetos do tipo Rating
 //ENTRADA: Vetor de objetos do tipo Rating, a posicao inicial e final do intervalo a ser ordenado
 //SAIDA: Tal vetor ordenado via InsertionSort
 void Ordenacoes::insertionsort(Rating* vet[], int inicio, int fim)
 {
-	clock_t relogio;
-	relogio = clock();//Instancia um novo contador de tempo
+	clock_t inicioClock;
+	clock_t fimClock;
+	inicioClock = clock();
 
 	int i, j;
 	Rating* chave; //chave auxiliar
@@ -67,16 +68,19 @@ void Ordenacoes::insertionsort(Rating* vet[], int inicio, int fim)
 		numTrocas++;
 	}
 
-	tempoGasto += (clock() - relogio) / (double)CLOCKS_PER_SEC;
+	fimClock = clock();
+	float tempoTotal = fimClock - inicioClock;
+	tempoGasto = tempoTotal / CLOCKS_PER_SEC;
 }
 
-//Algoritmo InsertionSort aplicado a um vetor de inteiros
+//Algoritmo Ordenadação via InsertionSort aplicado a um vetor de inteiros (contendo UserID's
 //ENTRADA: Vetor de inteiros (userIDs), a posicao inicial e final do intervalo a ser ordenado
 //SAIDA: Tal vetor ordenado via InsertionSort
 void Ordenacoes::insertionsortInt(int vet[], int inicio, int fim)
 {
-	clock_t relogio;
-	relogio = clock();//Instancia um novo contador de tempo
+	clock_t inicioClock;
+	clock_t fimClock;
+	inicioClock = clock();
 
 	int i, j;
 	int chave; //chave auxiliar
@@ -97,12 +101,14 @@ void Ordenacoes::insertionsortInt(int vet[], int inicio, int fim)
 		numTrocas++;
 	}
 
-	tempoGasto += (clock() - relogio) / (double)CLOCKS_PER_SEC;
+	fimClock = clock();
+	float tempoTotal = fimClock - inicioClock;
+	tempoGasto = tempoTotal / CLOCKS_PER_SEC;
 }
 
 //Funcao que realiza a troca de posicao entre dois objetos do tipo Rating
 //ENTRADA: 2 Objetos do tipo Rating a serem trocados de posicao entre si
-//SAIDA: A troca de posicao entre os dois objetos
+//SAIDA: A troca de posicao entre os dois objetos e o valor do numero de trocas atualizado
 void Ordenacoes::troca(Rating* &r1, Rating* &r2)
 {
 	if (r1 != r2) //Nao troca se r1 e r2 sao iguais, ja que nao precisa
@@ -114,7 +120,7 @@ void Ordenacoes::troca(Rating* &r1, Rating* &r2)
 	}
 }
 
-//Algoritmo de particionamento do vetor
+//Algoritmo de particionamento do vetor de objetos, auxiliar ao QuickSort
 //ENTRADA: Vetor de objetos do tipo Rating, posicao inicial e final deste vetor e indice da posicao onde o pivo sera posicionado
 //SAIDA: Vetor Particionado
 int Ordenacoes::particiona(Rating* vet[], int inicio, int fim, int pos)
@@ -141,7 +147,8 @@ int Ordenacoes::particiona(Rating* vet[], int inicio, int fim, int pos)
 
 	while (j <= fim - 1) //Ele nao vai ate o fim do vetor pois o ultimo elemento eh o pivo que foi jogado para o final no comeco da execucao
 	{
-		if ((vet[j]->getUserID() <= pivo) && ++numCompar)
+	    numCompar++;
+		if ((vet[j]->getUserID() <= pivo))
 		{
 			i++;
 			troca(vet[i], vet[j]);
@@ -154,123 +161,32 @@ int Ordenacoes::particiona(Rating* vet[], int inicio, int fim, int pos)
 }
 
 //Algoritmo do quicksort recursivo
-//ENTRADA: Vetor de objetos do tipo Rating, posicao inicial e final deste vetor e codigo "tipo" que indica o tipo de quicksort a ser realizado
+//ENTRADA: Vetor de objetos do tipo Rating, posicao inicial e final deste vetor
 //SAIDA: Vetor ordenado via QuickSort
 //Tipo r: QuickSort Recursivo com Pivo Central
-//Tipo m: QuickSort Recursivo com Pivo sendo a Mediana entre 3 valores aleatorios do vetor
-//Tipo M: QuickSort Recursivo com Pivo sendo a Mediana entre 5 valores aleatorios do vetor
-//Tipo i: QuickSort Recursivo utilizando InsertionSort para particoes de tamanho menor ou igual a 10
-//Tipo I: QuickSort Recursivo utilizando InsertionSort para particoes de tamanho menor ou igual a 100
-void Ordenacoes::quicksort(Rating* vet[], int ini, int fim, char tipo)
+void Ordenacoes::quicksort(Rating* vet[], int ini, int fim)
 {
-	clock_t relogio;
-	relogio = clock();
-	if (tipo == 'r') { //QuickSort Recursivo Padrao
-		if (ini < fim)
-		{
-			int part = particiona(vet, ini, fim, -1); //Codigo -1 em pos: Particao usando posicao central do vetor como pivo
-			quicksort(vet, ini, part - 1, 'r');
-			quicksort(vet, part + 1, fim, 'r');
-		}
-	}
-	if (tipo == 'm') { //QuickSort Recursivo com Mediana de 3 valores
-		if (ini < fim)
-		{
-			int posMediana = mediana(vet, 3, ini, fim); //posMediana recebe a posicao calculada na funcao Mediana com 3 valores
-			int part = particiona(vet, ini, fim, posMediana);
-			quicksort(vet, ini, part - 1, 'm');
-			quicksort(vet, part + 1, fim, 'm');
-		}
-	}
+	clock_t inicioClock;
+	clock_t fimClock;
+	inicioClock = clock();
 
-	if (tipo == 'M') { //QuickSort Recursivo com Mediana de 5 valores
-		if (ini < fim)
-		{
-			int posMediana = mediana(vet, 5, ini, fim); //posMediana recebe a posicao calculada na funcao Mediana com 5 valores
-			int part = particiona(vet, ini, fim, posMediana);
-			quicksort(vet, ini, part - 1, 'm');
-			quicksort(vet, part + 1, fim, 'm');
-		}
-	}
+    if (ini < fim)
+    {
+        int part = particiona(vet, ini, fim, -1); //Codigo -1 em pos: Particao usando posicao central do vetor como pivo
+        quicksort(vet, ini, part - 1);
+        quicksort(vet, part + 1, fim);
+    }
 
-	if (tipo == 'i') { //QuickSort Recursivo Hibrido (com Insertion para particoes de tamanho menor ou igual a 10)
-		if (ini < fim)
-		{
-			if (fim - ini <= 10) {//Se a subparticao possuir tamanho menor ou igual a 10, ordena via InsertionSort
-				Ordenacoes ordena;
-				ordena.insertionsort(vet, ini, fim + 1);
-				numCompar = numCompar + ordena.getNumComparacoes();
-				numTrocas = numTrocas + ordena.getNumTrocas();
-			}
-			else {
-				int part = particiona(vet, ini, fim, -1); //Codigo -1 em pos: Particao usando posicao central do vetor como pivo
-				quicksort(vet, ini, part - 1, 'i');
-				quicksort(vet, part + 1, fim, 'i');
-			}
-		}
-	}
-
-	if (tipo == 'I') { //QuickSort Recursivo Hibrido (com Insertion para particoes de tamanho menor ou igual a 100)
-		if (ini < fim)
-		{
-			if (fim - ini <= 100) {//Se a subparticao possuir tamanho menor ou igual a 100, ordena via InsertionSort
-				Ordenacoes ordena;
-				ordena.insertionsort(vet, ini, fim + 1);
-				numCompar = numCompar + ordena.getNumComparacoes();
-				numTrocas = numTrocas + ordena.getNumTrocas();
-			}
-			else {
-				int part = particiona(vet, ini, fim, -1); //Codigo -1 em pos: Particao usando posicao central do vetor como pivo
-				quicksort(vet, ini, part - 1, 'I');
-				quicksort(vet, part + 1, fim, 'I');
-			}
-		}
-	}
-
-	tempoGasto += (clock() - relogio) / (double)CLOCKS_PER_SEC;
-}
-
-
-//Funcao que calcula a mediana entre 3 e 5 valores aleatorios
-//ENTRADA: Vetor de objetos do tipo Rating, numero de valores a serem tomados para o calculo da mediana, posicao inicial e final do vetor passado por parametro
-//SAIDA: Retorna um inteiro que indica a posicao do vetor de Rating`s referente a mediana calculada, para ser usado como pivo do quicksort recursivo.
-int Ordenacoes::mediana(Rating* vet[], int numVal, int inicio, int fim) {
-
-	int posMediana;//posicao a ser calculada e retornada da funcao
-	int posRand;//Posicao Calculada Randomicamente
-	if (numVal == 3) { //para k=3
-		Rating* vetor[3];
-		for (int i = 0; i < 3; i++) {
-			srand(i);
-			posRand = rand() % (fim - inicio); //Atribui a posicao randomica do vetor original
-			vetor[i] = new Rating(posRand, vet[posRand]->getMovieID(), 0 , ""); //Atribui a MovieID a posicao em si, e em UserID o valor do UserID contido nesta posicao
-		}
-		Ordenacoes ordena;
-		ordena.insertionsort(vetor, 0, 3);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
-		posMediana = vet[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que é a posicao original do vetor de Ratings
-		return posMediana;
-	}
-
-	if (numVal == 5) {//para k=5
-		Rating* vetor[5];
-		for (int i = 0; i < 5; i++) {
-			srand(i);
-			posRand = rand() % (fim - inicio); //Atribui a posicao randomica do vetor original
-			vetor[i] = new Rating(posRand, vet[posRand]->getMovieID(), 0, ""); //Atribui a MovieID a posicao em si, e em UserID o valor do UserID contido nesta posicao
-		}
-		Ordenacoes ordena;
-		ordena.insertionsort(vetor, 0, 3);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
-		posMediana = vet[2]->getMovieID();//pega o valor central do vetor (mediana) e atribui o MovieID, que é a posicao original do vetor de Ratings
-		return posMediana;
-	}
-	return inicio; //caso nao entre em nenhuma condicao, passa a posicao inicial como valor
-
+	fimClock = clock();
+	float tempoTotal = fimClock - inicioClock;
+	tempoGasto = tempoTotal / CLOCKS_PER_SEC;
 }
 
 void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
 
-    clock_t relogio;
-	relogio = clock();
+    clock_t inicioClock;
+	clock_t fimClock;
+	inicioClock = clock();
 
     int esquerda, direita, pivo, meio, aux;
 
@@ -284,17 +200,15 @@ void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
 
     while(direita > esquerda) {
 
-      while(userId[esquerda] < pivo) {
-        esquerda = esquerda +1;
-        numCompar++;
+      while(userId[esquerda] < pivo && ++numCompar) {
+        esquerda = esquerda +1;;
         }
-        while(userId[direita] > pivo) {
-            numCompar++;
+        while(userId[direita] > pivo && ++numCompar) {
             direita = direita - 1;
         }
 
         if(esquerda <= direita){
-            numCompar++;
+
             //realiza a troca
             aux = userId[esquerda];
             userId[esquerda] = userId[direita];
@@ -317,7 +231,10 @@ void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
     if(esquerda < fim) {
         QuickSortInt(userId, esquerda, fim);
     }
-    tempoGasto = (clock() - relogio) / (double)CLOCKS_PER_SEC;
+
+    fimClock = clock();
+	float tempoTotal = fimClock - inicioClock;
+	tempoGasto = tempoTotal / CLOCKS_PER_SEC;
 }
 //Procedimento que controi um vetor de objetos Heap
 //ENTRADA: Vetor de objetos do tipo Rating, tamanho do vetor e o indice raiz
@@ -329,33 +246,31 @@ void Ordenacoes::constroiHeap(int vetor[], int tam, int indice_raiz)
 
 	while (indice_raiz < tam / 2) {
 		ramificacao = 2 * indice_raiz + 1;
+		numCompar++;
 
-		if (ramificacao < tam - 1 && vetor[ramificacao] < vetor[ramificacao + 1]) {
+		if (ramificacao < tam - 1 && vetor[ramificacao] < vetor[ramificacao + 1] && ++numCompar) {
 			ramificacao++;
 
 		}
-		if (valor >= vetor[ramificacao]) {//Identifica o max-heap
-			numTrocas++;
+		if (valor >= vetor[ramificacao] && ++numCompar) {//Identifica o max-heap
 			break;
 		}
 
 		vetor[indice_raiz] = vetor[ramificacao];
+		numTrocas++;
 		indice_raiz = ramificacao;
-		++numCompar;
 	}
 	vetor[indice_raiz] = valor;
 }
-
-
-
 
 //Algoritmo HeapSort
 //ENTRADA: Vetor de objetos do tipo Rating, e o tamanho do vetor
 //SAIDA: Tal vetor ordenado via HeapSort
 void Ordenacoes::heapsort(int vetor[], int tam)
 {
-	clock_t relogio;
-	relogio = clock();
+	clock_t inicioClock;
+	clock_t fimClock;
+	inicioClock = clock();
 
 	int indice;
 	int troca;
@@ -371,11 +286,17 @@ void Ordenacoes::heapsort(int vetor[], int tam)
 		constroiHeap(vetor, --tam, 0);
 	}
 
-	tempoGasto = (clock() - relogio) / (double)CLOCKS_PER_SEC;
+	fimClock = clock();
+	float tempoTotal = fimClock - inicioClock;
+	tempoGasto = tempoTotal / CLOCKS_PER_SEC;
 }
 
 void Ordenacoes::MergeSort(int* vetor, int indiceEsquerdo, int indiceDireito)
 {
+    clock_t inicioClock;
+	clock_t fimClock;
+	inicioClock = clock();
+
     if(indiceEsquerdo < indiceDireito){
         //define o meio
         int meio = indiceEsquerdo + (indiceDireito - indiceEsquerdo)/2;
@@ -391,6 +312,9 @@ void Ordenacoes::MergeSort(int* vetor, int indiceEsquerdo, int indiceDireito)
         Merge(vetor, indiceEsquerdo, meio, indiceDireito);
     }
 
+    fimClock = clock();
+	float tempoTotal = fimClock - inicioClock;
+	tempoGasto = tempoTotal / CLOCKS_PER_SEC;
 }
 
 //Junta os dois sub arrays criados com o vetor principal
@@ -450,7 +374,7 @@ void Ordenacoes::Merge(int* vetor, int indiceEsquerdo, int meio, int indiceDirei
 }
 
 //Algoritmo de particionamento do vetor
-//ENTRADA: Vetor de objetos do tipo Rating, posicao inicial e final deste vetor e indice da posicao onde o pivo sera posicionado
+//ENTRADA: Vetor de inteiros com valores de UserID, posicao inicial e final deste vetor e indice da posicao onde o pivo sera posicionado
 //SAIDA: Vetor Particionado
 int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 {
@@ -479,13 +403,15 @@ int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 
 	while (j <= fim - 1) //Ele nao vai ate o fim do vetor pois o ultimo elemento eh o pivo que foi jogado para o final no comeco da execucao
 	{
-		if ((vet[j] <= pivo) && ++numCompar)
+	    numCompar++;
+		if ((vet[j] < pivo))
 		{
 			i++;
 			//troca(vet[i], vet[j]);
 			aux = vet[i];
             vet[i] = vet[j];
             vet[j] = aux;
+            numTrocas++;
 		}
 		j++;
 	}
@@ -508,8 +434,10 @@ int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 //Tipo I: QuickSort Recursivo utilizando InsertionSort para particoes de tamanho menor ou igual a 100
 void Ordenacoes::quicksortInteiros(int vet[], int ini, int fim, char tipo)
 {
-	clock_t relogio;
-	relogio = clock();
+	clock_t inicioClock;
+	clock_t fimClock;
+	inicioClock = clock();
+
 	if (tipo == 'r') { //QuickSort Recursivo Padrao
 		if (ini < fim)
 		{
@@ -533,8 +461,8 @@ void Ordenacoes::quicksortInteiros(int vet[], int ini, int fim, char tipo)
 		{
 			int posMediana = medianaInt(vet, 5, ini, fim); //posMediana recebe a posicao calculada na funcao Mediana com 5 valores
 			int part = particionaInt(vet, ini, fim, posMediana);
-			quicksortInteiros(vet, ini, part - 1, 'm');
-			quicksortInteiros(vet, part + 1, fim, 'm');
+			quicksortInteiros(vet, ini, part - 1, 'M');
+			quicksortInteiros(vet, part + 1, fim, 'M');
 		}
 	}
 
@@ -572,7 +500,9 @@ void Ordenacoes::quicksortInteiros(int vet[], int ini, int fim, char tipo)
 		}
 	}
 
-	tempoGasto += (clock() - relogio) / (double)CLOCKS_PER_SEC;
+	fimClock = clock();
+	float tempoTotal = fimClock - inicioClock;
+	tempoGasto = tempoTotal / CLOCKS_PER_SEC;
 }
 
 
@@ -583,35 +513,62 @@ int Ordenacoes::medianaInt(int vet[], int numVal, int inicio, int fim) {
 
 	int posMediana;//posicao a ser calculada e retornada da funcao
 	int posRand;//Posicao Calculada Randomicamente
+
 	if (numVal == 3) { //para k=3
-		Rating** vetor = new Rating*[3];
+
+        unsigned long int posicoes[3];
+
 		for (int i = 0; i < 3; i++) {
-			srand(i);
-			posRand = rand() % (fim - inicio); //Atribui a posicao randomica do vetor original
-			vetor[i] = new Rating(vet[posRand], posRand, 0 , ""); //Atribui a MovieID a posicao em si, e em UserID o valor do UserID contido nesta posicao
+			srand(time(NULL));
+			posRand = rand() % fim + inicio; //Atribui a posicao randomica do vetor original
+            posicoes [i] = posRand;
 		}
-		Ordenacoes ordena;
-		ordena.insertionsort(vetor, 0, 3);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
-		posMediana = vetor[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que é a posicao original do vetor de Ratings
-		return posMediana;
+
+		int userIDaux [3] = {vet[posicoes[0]], vet[posicoes[1]],vet[posicoes[2]]};
+        int userID [3] = {vet[posicoes[0]], vet[posicoes[1]],vet[posicoes[2]]};
+
+        Ordenacoes ordena2;
+        ordena2.insertionsortInt(userIDaux, 0, 5);
+
+        for (int i=0; i<3; i++){
+            if (userIDaux[1] == userID[i]){
+                posMediana = posicoes[i];
+                return posMediana;
+            }
+        }
 	}
 
-	if (numVal == 5) { //para k=3
-		Rating** vetor = new Rating*[5];
+	if (numVal == 5) { //para k=5
+
+        unsigned long int posicoes[5];
+
 		for (int i = 0; i < 5; i++) {
-			srand(i);
-			posRand = rand() % (fim - inicio); //Atribui a posicao randomica do vetor original
-			vetor[i] = new Rating(vet[posRand], posRand, 0 , ""); //Atribui a MovieID a posicao em si, e em UserID o valor do UserID contido nesta posicao
+			srand(time(NULL));
+			posRand = rand() % fim + inicio; //Atribui a posicao randomica do vetor original
+            posicoes [i] = posRand;
 		}
-		Ordenacoes ordena;
-		ordena.insertionsort(vetor, 0, 5);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
-		posMediana = vetor[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que é a posicao original do vetor de Ratings
-		return posMediana;
+
+		int userIDaux [5] = {vet[posicoes[0]], vet[posicoes[1]],vet[posicoes[2]],vet[posicoes[3]],vet[posicoes[4]]};
+        int userID [5] = {vet[posicoes[0]], vet[posicoes[1]],vet[posicoes[2]],vet[posicoes[3]],vet[posicoes[4]]};
+
+        Ordenacoes ordena2;
+        ordena2.insertionsortInt(userIDaux, 0, 5);
+
+        for (int i=0; i<5; i++){
+            if (userIDaux[3] == userID[i]){
+                posMediana = posicoes[i];
+                return posMediana;
+            }
+        }
 	}
 	return inicio; //caso nao entre em nenhuma condicao, passa a posicao inicial como valor
-
 }
 void Ordenacoes::shell_sort(int vetor[], int tam) {
+
+    clock_t inicioClock;
+	clock_t fimClock;
+	inicioClock = clock();
+
   int i, j, atual;
   int h = 1;
 
@@ -626,16 +583,20 @@ void Ordenacoes::shell_sort(int vetor[], int tam) {
 
     for(int i = h; i < tam; i++){
         atual = vetor[i];
-
         j = i - h;
 
         while((j>=0) && (atual < vetor[j])){
             vetor[j+h] = vetor[j];
+            numCompar++;
 
             j = j - h;
         }
 
         vetor[j+h] = atual;
+        numTrocas++;
     }
   }
+    fimClock = clock();
+	float tempoTotal = fimClock - inicioClock;
+	tempoGasto = tempoTotal / CLOCKS_PER_SEC;
 }

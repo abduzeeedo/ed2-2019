@@ -173,60 +173,6 @@ void Ordenacoes::quicksort(Rating* vet[], int ini, int fim, char tipo)
 			quicksort(vet, part + 1, fim, 'r');
 		}
 	}
-	if (tipo == 'm') { //QuickSort Recursivo com Mediana de 3 valores
-		if (ini < fim)
-		{
-			int posMediana = mediana(vet, 3, ini, fim); //posMediana recebe a posicao calculada na funcao Mediana com 3 valores
-			int part = particiona(vet, ini, fim, posMediana);
-			quicksort(vet, ini, part - 1, 'm');
-			quicksort(vet, part + 1, fim, 'm');
-		}
-	}
-
-	if (tipo == 'M') { //QuickSort Recursivo com Mediana de 5 valores
-		if (ini < fim)
-		{
-			int posMediana = mediana(vet, 5, ini, fim); //posMediana recebe a posicao calculada na funcao Mediana com 5 valores
-			int part = particiona(vet, ini, fim, posMediana);
-			quicksort(vet, ini, part - 1, 'm');
-			quicksort(vet, part + 1, fim, 'm');
-		}
-	}
-
-	if (tipo == 'i') { //QuickSort Recursivo Hibrido (com Insertion para particoes de tamanho menor ou igual a 10)
-		if (ini < fim)
-		{
-			if (fim - ini <= 10) {//Se a subparticao possuir tamanho menor ou igual a 10, ordena via InsertionSort
-				Ordenacoes ordena;
-				ordena.insertionsort(vet, ini, fim + 1);
-				numCompar = numCompar + ordena.getNumComparacoes();
-				numTrocas = numTrocas + ordena.getNumTrocas();
-			}
-			else {
-				int part = particiona(vet, ini, fim, -1); //Codigo -1 em pos: Particao usando posicao central do vetor como pivo
-				quicksort(vet, ini, part - 1, 'i');
-				quicksort(vet, part + 1, fim, 'i');
-			}
-		}
-	}
-
-	if (tipo == 'I') { //QuickSort Recursivo Hibrido (com Insertion para particoes de tamanho menor ou igual a 100)
-		if (ini < fim)
-		{
-			if (fim - ini <= 100) {//Se a subparticao possuir tamanho menor ou igual a 100, ordena via InsertionSort
-				Ordenacoes ordena;
-				ordena.insertionsort(vet, ini, fim + 1);
-				numCompar = numCompar + ordena.getNumComparacoes();
-				numTrocas = numTrocas + ordena.getNumTrocas();
-			}
-			else {
-				int part = particiona(vet, ini, fim, -1); //Codigo -1 em pos: Particao usando posicao central do vetor como pivo
-				quicksort(vet, ini, part - 1, 'I');
-				quicksort(vet, part + 1, fim, 'I');
-			}
-		}
-	}
-
 	tempoGasto += (clock() - relogio) / (double)CLOCKS_PER_SEC;
 }
 
@@ -264,10 +210,12 @@ int Ordenacoes::mediana(Rating* vet[], int numVal, int inicio, int fim) {
 		return posMediana;
 	}
 	return inicio; //caso nao entre em nenhuma condicao, passa a posicao inicial como valor
-
 }
 
 void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
+
+    clock_t relogio;
+	relogio = clock();
 
     int esquerda, direita, pivo, meio, aux;
 
@@ -283,16 +231,20 @@ void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
 
       while(userId[esquerda] < pivo) {
         esquerda = esquerda +1;
+        numCompar++;
         }
         while(userId[direita] > pivo) {
+            numCompar++;
             direita = direita - 1;
         }
 
         if(esquerda <= direita){
+            numCompar++;
             //realiza a troca
             aux = userId[esquerda];
             userId[esquerda] = userId[direita];
             userId[direita] = aux;
+            numTrocas++;
 
             //Faz o limites laterais andarem para o centro
             esquerda = esquerda + 1;
@@ -310,6 +262,7 @@ void Ordenacoes::QuickSortInt(int* userId, int inicio, int fim){
     if(esquerda < fim) {
         QuickSortInt(userId, esquerda, fim);
     }
+    tempoGasto = (clock() - relogio) / (double)CLOCKS_PER_SEC;
 }
 //Procedimento que controi um vetor de objetos Heap
 //ENTRADA: Vetor de objetos do tipo Rating, tamanho do vetor e o indice raiz
@@ -337,9 +290,6 @@ void Ordenacoes::constroiHeap(int vetor[], int tam, int indice_raiz)
 	}
 	vetor[indice_raiz] = valor;
 }
-
-
-
 
 //Algoritmo HeapSort
 //ENTRADA: Vetor de objetos do tipo Rating, e o tamanho do vetor
@@ -442,7 +392,7 @@ void Ordenacoes::Merge(int* vetor, int indiceEsquerdo, int meio, int indiceDirei
 }
 
 //Algoritmo de particionamento do vetor
-//ENTRADA: Vetor de objetos do tipo Rating, posicao inicial e final deste vetor e indice da posicao onde o pivo sera posicionado
+//ENTRADA: Vetor de inteiros com valores de UserID, posicao inicial e final deste vetor e indice da posicao onde o pivo sera posicionado
 //SAIDA: Vetor Particionado
 int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 {
@@ -464,6 +414,7 @@ int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 	vet[pospiv] = vet[fim];
 	vet[fim] = aux;
 	pospiv = fim; //Volta a posicao do pivo como sendo o fim do vetor que vai ser particionado
+	numTrocas++;
 
 	//Variaveis para percorrer no vetor particionado
 	int i = inicio - 1; //Comeca antes do inicio pq na primeira troca ele ja vai virar o inicio
@@ -478,6 +429,7 @@ int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 			aux = vet[i];
             vet[i] = vet[j];
             vet[j] = aux;
+            numTrocas++;
 		}
 		j++;
 	}
@@ -486,6 +438,7 @@ int Ordenacoes::particionaInt(int vet[], int inicio, int fim, int pos)
 	aux = vet[i + 1];
     vet[i + 1] = vet[pospiv];
     vet[pospiv] = aux;
+    numTrocas++;
 
 	return i + 1;
 }
@@ -582,8 +535,8 @@ int Ordenacoes::medianaInt(int vet[], int numVal, int inicio, int fim) {
 			posRand = rand() % (fim - inicio); //Atribui a posicao randomica do vetor original
 			vetor[i] = new Rating(vet[posRand], posRand, 0 , ""); //Atribui a MovieID a posicao em si, e em UserID o valor do UserID contido nesta posicao
 		}
-		Ordenacoes ordena;
-		ordena.insertionsort(vetor, 0, 3);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
+		Ordenacoes ordena2;
+		ordena2.insertionsort(vetor, 0, 3);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
 		posMediana = vetor[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que é a posicao original do vetor de Ratings
 		return posMediana;
 	}
@@ -595,8 +548,8 @@ int Ordenacoes::medianaInt(int vet[], int numVal, int inicio, int fim) {
 			posRand = rand() % (fim - inicio); //Atribui a posicao randomica do vetor original
 			vetor[i] = new Rating(vet[posRand], posRand, 0 , ""); //Atribui a MovieID a posicao em si, e em UserID o valor do UserID contido nesta posicao
 		}
-		Ordenacoes ordena;
-		ordena.insertionsort(vetor, 0, 5);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
+		Ordenacoes ordena2;
+		ordena2.insertionsort(vetor, 0, 5);//utiliza o insertionSort para ordenar o UserID do vetor de 3 posicoes
 		posMediana = vetor[1]->getMovieID();//pega o valor central do vetor (mediana) e atribui o movieID, que é a posicao original do vetor de Ratings
 		return posMediana;
 	}
